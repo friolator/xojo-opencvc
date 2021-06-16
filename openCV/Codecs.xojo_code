@@ -4,6 +4,10 @@ Protected Module Codecs
 		Private Declare Function CVCimread Lib libName (fileName as CString, modes as imReadModes) As Ptr
 	#tag EndExternalMethod
 
+	#tag ExternalMethod, Flags = &h21
+		Private Declare Function CVCimwrite Lib libName (fileName as CString, img as Ptr, params as Integer, pcount as integer) As Boolean
+	#tag EndExternalMethod
+
 	#tag Method, Flags = &h1
 		Protected Function imread(path as String, flags as openCV.imReadModes) As openCV.CVCMat
 		  //Var flag16 As Int16=CType(flags, Int16)
@@ -11,6 +15,13 @@ Protected Module Codecs
 		  If p<>Nil Then 
 		    Return New openCV.CVCMat(p)
 		  End If
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Function imwrite(path as String, mat as openCV.CVCMat) As Boolean
+		  
+		  Return CVCimwrite(path, mat.handle, 0, 0)
 		End Function
 	#tag EndMethod
 

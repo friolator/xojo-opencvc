@@ -30,7 +30,7 @@ Protected Class CVCRectVector
 	#tag EndMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Function CVCRectVectorAt Lib libName (h as Ptr, index as UInteger) As CVCRect
+		Private Declare Function CVCRectVectorAt Lib libName (h as Ptr, index as integer) As CVCRect
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
@@ -58,10 +58,10 @@ Protected Class CVCRectVector
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function RowAt(index as UInteger) As CVCRect
+		Function RowAt(index as integer) As CVCRect
 		  Var c As CVCRect
 		  c= CVCRectVectorAt(handle, index)
-		  Var m As MemoryBlock=c.StringValue(true)
+		  Var m As MemoryBlock=c.StringValue(True)
 		  Return c
 		End Function
 	#tag EndMethod

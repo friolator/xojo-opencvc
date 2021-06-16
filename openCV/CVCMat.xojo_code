@@ -47,6 +47,21 @@ Protected Class CVCMat
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function image() As Picture
+		  Var f As FolderItem=FolderItem.TemporaryFile
+		  f.Name=f.Name+".png"
+		  
+		  Var ok As Boolean=Codecs.imwrite(f.NativePath, Me)
+		  If ok Then
+		    Var p As Picture=Picture.Open(f)
+		    If f.Exists Then f.Remove
+		    
+		    Return p
+		  End If
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function Roi(theRect as CVCRect) As CVCMat
 		  Var h As Ptr=CVCMatRoi(handle, theRect)
 		  Return new CVCMat(h)

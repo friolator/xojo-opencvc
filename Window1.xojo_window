@@ -10,7 +10,7 @@ Begin Window Window1
    HasFullScreenButton=   False
    HasMaximizeButton=   True
    HasMinimizeButton=   True
-   Height          =   400
+   Height          =   487
    ImplicitInstance=   True
    MacProcID       =   0
    MaximumHeight   =   32000
@@ -23,7 +23,7 @@ Begin Window Window1
    Title           =   "Untitled"
    Type            =   0
    Visible         =   True
-   Width           =   600
+   Width           =   804
    Begin PushButton bLoad
       AllowAutoDeactivate=   True
       Bold            =   False
@@ -265,7 +265,7 @@ Begin Window Window1
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   296
+      Left            =   204
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -277,7 +277,7 @@ Begin Window Window1
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
-      Top             =   159
+      Top             =   150
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -314,6 +314,64 @@ Begin Window Window1
       Underline       =   False
       Visible         =   True
       Width           =   80
+   End
+   Begin PushButton PushButton3
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Cancel          =   False
+      Caption         =   "Picture"
+      Default         =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   20
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   20
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      MacButtonStyle  =   0
+      Scope           =   2
+      TabIndex        =   10
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Tooltip         =   ""
+      Top             =   59
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   80
+   End
+   Begin Canvas Canvas1
+      AllowAutoDeactivate=   True
+      AllowFocus      =   False
+      AllowFocusRing  =   True
+      AllowTabs       =   False
+      Backdrop        =   0
+      Enabled         =   True
+      Height          =   344
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Left            =   319
+      LockBottom      =   True
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   True
+      LockTop         =   True
+      Scope           =   2
+      TabIndex        =   11
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Tooltip         =   ""
+      Top             =   123
+      Transparent     =   True
+      Visible         =   True
+      Width           =   465
    End
 End
 #tag EndWindow
@@ -362,6 +420,25 @@ End
 	#tag EndMethod
 
 
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Return mcurrentImage
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  mcurrentImage = value
+			  Canvas1.Invalidate
+			End Set
+		#tag EndSetter
+		currentImage As Picture
+	#tag EndComputedProperty
+
+	#tag Property, Flags = &h21
+		Private mcurrentImage As Picture
+	#tag EndProperty
+
 	#tag Property, Flags = &h21
 		Private reference As openCV.CVCMat
 	#tag EndProperty
@@ -377,6 +454,7 @@ End
 	#tag Event
 		Sub Action()
 		  LoadImage
+		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -409,6 +487,7 @@ End
 		  Var blurSize As New openCV.CVCSize(0, 0)
 		  //openCV.imgProc.CVCGaussianBlur(reference, reference, blurSize, 3.0, 3.0, openCV.BorderTypes.Default)
 		  reference2=openCV.imgProc.CVCGaussianBlur(reference, blurSize, 3.0, 3.0, openCV.BorderTypes.Default)
+		  currentImage=reference2.image
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -494,10 +573,11 @@ End
 		  Var frame As New openCV.CVCMat
 		  If videoStream.read(frame) Then
 		    Var gray As openCV.CVCMat=openCV.imgProc.CVCCvtColor(frame, openCV.ColorConversionCodes.Rgb2gray, 0)
-		    
+		    currentImage=gray.image
+		    Return
 		    faceCascade.DetectMultiScale(gray, faces, 1.1, 3, 0, cSize, cSize)
 		    Var nf As Integer=faces.Count
-		    For i As UInteger=1 To nf
+		    For i As UInteger=0 To nf-1
 		      Var roiRect As openCV.CVCRect =faces.RowAt(i)
 		      Var roiGray As openCV.CVCMat=gray.Roi(roiRect)
 		      Var roiSrc As openCV.CVCMat=frame.Roi(roiRect)
@@ -561,8 +641,37 @@ End
 		  
 		  Var frame As New openCV.CVCMat
 		  If videoStream.read(frame) Then
-		    show("VideoFrame", frame)
+		    //show("VideoFrame", frame)
+		    currentImage=frame.image
 		  End If
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events PushButton3
+	#tag Event
+		Sub Action()
+		  If reference<>Nil Then
+		    '
+		    'Var f As FolderItem=SpecialFolder.Desktop.Child("prova.png")
+		    'Var ok As Boolean=openCV.Codecs.imwrite(f.NativePath, reference)
+		    'Break
+		    currentImage=reference.image
+		  End If
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events Canvas1
+	#tag Event
+		Sub Paint(g As Graphics, areas() As REALbasic.Rect)
+		  If currentImage=Nil Then Return
+		  
+		  Var s As Double=min(g.Width/currentImage.Width, g.Height/currentImage.Height)
+		  Var w, h As Double
+		  If s>1.0 Then s=1.0
+		  w=currentImage.Width*s
+		  h=currentImage.Height*s
+		  g.DrawPicture currentImage, 0, 0, w, h, 0, 0, currentImage.Width, currentImage.Height
+		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents
