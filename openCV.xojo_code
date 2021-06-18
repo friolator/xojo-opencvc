@@ -1,81 +1,20 @@
 #tag Module
 Protected Module openCV
-	#tag Method, Flags = &h1
-		Protected Function convert2BMP(src as CVCMat) As Picture
-		  Var p As Ptr=src.handle
-		  Var x As CvMat=p.CvMat
-		  Var a As IplImage=p.IplImage
-		  Var ww As Integer=src.width
-		  Var hh As Integer=src.height
-		  Var m As MemoryBlock=p
-		  Var imgSize As Integer=p.UInt32(64)
-		  Var imgsize2 As Integer=ww*hh*4
-		  Var w As Integer = p.UInt32(40)
-		  Var h As Integer = p.UInt32(44)
-		  Var imageData As MemoryBlock
-		  // create a MemoryBlock for the header and image values
-		  Var RGBBitmap As MemoryBlock =  New MemoryBlock( imgsize2+54)//New MemoryBlock(h * w * 4 +54)        
-		  //  the 54 bytes bitmap header with required information
-		  RGBBitmap.UShort(0)=&h4D42
-		  RGBBitmap.UInt32Value(2)=imgSize2
-		  RGBBitmap.UInt16Value(6)=0
-		  RGBBitmap.UInt16Value(8)=0
-		  RGBBitmap.UInt32Value(10)=54
-		  RGBBitmap.UInt32Value(14)=40
-		  RGBBitmap.UInt32Value(18)=w
-		  RGBBitmap.UInt32Value(22)=h
-		  RGBBitmap.UInt16Value(26)=1
-		  RGBBitmap.UInt16Value(28)=32
-		  RGBBitmap.UInt32Value(30)=0
-		  RGBBitmap.UInt32Value(34)=imgSize2
-		  RGBBitmap.UInt32Value(38)=72
-		  RGBBitmap.UInt32Value(42)=72
-		  RGBBitmap.UInt32Value(46)=0
-		  RGBBitmap.UInt32Value(50)=0
-		  // update bitmap image values from opencv data address
-		  imageData= p.ptr(68)                                      
-		  //RGBBitmap.StringValue(54,imgSize2)= imageData.StringValue(0,imgSize2)
-		  //make a Picture from Data
-		  Dim bmp As picture=New picture (ww,hh)
-		  bmp=bmp.FromData(RGBBitmap)
-		  Return bmp
+	#tag Method, Flags = &h0
+		Function operator_convert(extends r as Rect) As CVCRect
+		  Var reply As CVCRect
+		  reply.x=CType(round(r.Left), Int32)
+		  reply.y=CType(Round(r.top), Int32)
+		  reply.width=CType(Round(r.Width), Int32)
+		  reply.height=CType(Round(r.Height), Int32)
+		  Return reply
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h0, Description = 72657475726E732061207374727563747572652049706C496D616765
-		Function getImageValues(ipl As Ptr) As IplImage
-		  // ipl is a Ptr to an opecv Image 
-		  //MemoryBlock can also used 
-		  dim opencvImage as IplImage
-		  opencvImage.nSize=ipl.int32(0)
-		  opencvImage.ID=ipl.int32(4)
-		  opencvImage.nChannels=ipl.Int32(8)
-		  opencvImage.alphaChannel=ipl.int32(12)
-		  opencvImage.depth=ipl.int32(16)
-		  opencvImage.colorModel=chr(ipl.int8(20)) +  chr(ipl.int8(21))  + chr(ipl.int8(22)) + chr(ipl.int8(23))
-		  opencvImage.channelSeq=chr(ipl.int8(24)) +  chr(ipl.int8(25))  + chr(ipl.int8(26)) + chr(ipl.int8(27))
-		  opencvImage.dataOrder=ipl.int32(28)
-		  opencvImage.origin=ipl.int32(32)
-		  opencvImage.align=ipl.int32(36)
-		  opencvImage.width=ipl.int32(40)
-		  opencvImage.height=ipl.int32(44)
-		  opencvImage.roi=Ipl.Ptr(48)
-		  opencvImage.maskRoi=ipl.ptr(52)
-		  opencvImage.imageId=ipl.ptr(56)
-		  opencvImage.tileInfo=ipl.ptr(60)
-		  opencvImage.imageSize=ipl.Int32(64)
-		  opencvImage.imageData=ipl.ptr(68)
-		  opencvImage.widthStep=ipl.Int32(72)
-		  opencvImage.bm0=ipl.Int32(76)
-		  opencvImage.bm1=ipl.int32(80)
-		  opencvImage.bm2=ipl.int32(84)
-		  opencvImage.bm3=ipl.int32(88)
-		  opencvImage.cm0=ipl.int32(92)
-		  opencvImage.cm1=ipl.int32(96)
-		  opencvImage.cm2=ipl.int32(100)
-		  opencvImage.cm3=ipl.int32(104)
-		  opencvImage.imageDataOrigin=ipl.Ptr(108)
-		  return opencvimage
+	#tag Method, Flags = &h0
+		Function toRect(extends src as cvcRect) As Rect
+		  Var r As New Rect(src.x, src.y, src.width, src.height)
+		  Return r
 		End Function
 	#tag EndMethod
 
@@ -96,10 +35,10 @@ Protected Module openCV
 	#tag EndStructure
 
 	#tag Structure, Name = CVCRect, Flags = &h0
-		x as Integer
-		  y as integer 
-		  width as integer
-		height as integer
+		x as Int32
+		  y as int32
+		  width as int32
+		height as int32
 	#tag EndStructure
 
 	#tag Structure, Name = CVCScalar, Flags = &h0
@@ -107,47 +46,6 @@ Protected Module openCV
 		  v1 as double
 		  v2 as double
 		v3 as double
-	#tag EndStructure
-
-	#tag Structure, Name = CvMat, Flags = &h0
-		type as integer
-		  step_ as Integer
-		  refcount As Ptr
-		  hdr_refcount as Integer
-		  data as Ptr
-		  rows as Integer
-		cols as integer
-	#tag EndStructure
-
-	#tag Structure, Name = IplImage, Flags = &h0
-		nSize As integer
-		  ID As integer
-		  nChannels as Integer
-		  alphaChannel as Integer
-		  depth as Integer
-		  colorModel as CString
-		  channelSeq as CString
-		  dataOrder as integer
-		  origin As Integer
-		  align As Integer
-		  width As Integer
-		  height As integer
-		  roi As Ptr
-		  maskRoi as Ptr
-		  imageId as Ptr
-		  tileInfo as Ptr
-		  imageSize as integer
-		  imageData as Ptr
-		  widthStep as integer
-		  bm0 as integer
-		  bm1 as integer
-		  bm2 as integer
-		  bm3 as integer
-		  cm0 as integer
-		  cm1 as integer
-		  cm2 as integer
-		  cm3 as integer
-		imageDataOrigin as Ptr
 	#tag EndStructure
 
 

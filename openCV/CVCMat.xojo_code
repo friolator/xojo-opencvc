@@ -41,6 +41,12 @@ Protected Class CVCMat
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function Handle() As Ptr
+		  Return handle
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function Height() As integer
 		  Return CVCMatHeight(handle)
 		End Function
@@ -88,8 +94,8 @@ Protected Class CVCMat
 	#tag EndMethod
 
 
-	#tag Property, Flags = &h0
-		handle As Ptr
+	#tag Property, Flags = &h21
+		Private handle As Ptr
 	#tag EndProperty
 
 

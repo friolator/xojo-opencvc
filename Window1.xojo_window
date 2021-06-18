@@ -353,6 +353,7 @@ Begin Window Window1
       AllowFocusRing  =   True
       AllowTabs       =   False
       Backdrop        =   0
+      DoubleBuffer    =   False
       Enabled         =   True
       Height          =   344
       Index           =   -2147483648
@@ -372,6 +373,38 @@ Begin Window Window1
       Transparent     =   True
       Visible         =   True
       Width           =   465
+   End
+   Begin PushButton PushButton1
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Cancel          =   False
+      Caption         =   "Button"
+      Default         =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   20
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   20
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      MacButtonStyle  =   0
+      Scope           =   2
+      TabIndex        =   12
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Tooltip         =   ""
+      Top             =   220
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   80
    End
 End
 #tag EndWindow
@@ -574,7 +607,6 @@ End
 		  If videoStream.read(frame) Then
 		    Var gray As openCV.CVCMat=openCV.imgProc.CVCCvtColor(frame, openCV.ColorConversionCodes.Rgb2gray, 0)
 		    currentImage=gray.image
-		    Return
 		    faceCascade.DetectMultiScale(gray, faces, 1.1, 3, 0, cSize, cSize)
 		    Var nf As Integer=faces.Count
 		    For i As UInteger=0 To nf-1
@@ -672,6 +704,101 @@ End
 		  h=currentImage.Height*s
 		  g.DrawPicture currentImage, 0, 0, w, h, 0, 0, currentImage.Width, currentImage.Height
 		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events PushButton1
+	#tag Event
+		Sub Action()
+		  If False Then
+		    //Test int vector: is int32 vector
+		    Var v As New openCV.CVCIntVector
+		    v.Add 1
+		    v.Add 10
+		    Var n As Integer=v.Count
+		    Var x As Integer=v.rowAt(0)
+		    Var x1 As Integer=v.rowAt(1)
+		    Var mref As New MemoryBlock(8)
+		    mref.Int32Value(0)=x
+		    mref.Int32Value(4)=x1
+		    Var m As MemoryBlock=v.Data
+		    Var mx1 As Integer=m.Int32Value(0)
+		    Var mx2 As Integer=m.Int32Value(4)
+		    
+		    Break
+		  End If
+		  
+		  If False Then
+		    //Test float vector: is single vector
+		    Var v As New openCV.CVCFloatVector
+		    v.Add 99.2
+		    v.Add 10.0
+		    Var n As Integer=v.Count
+		    Var x As Single=v.RowAt(0) //fails
+		    Var x1 As Single=v.RowAt(1) //fails
+		    Var mref As New MemoryBlock(8)
+		    mref.SingleValue(0)=99.2
+		    mref.SingleValue(4)=10.0
+		    Var m As MemoryBlock=v.Data
+		    Var mx1 As Single=m.SingleValue(0)
+		    Var mx2 As Single=m.SingleValue(4)
+		    
+		    Break
+		  End If
+		  If False Then
+		    //test new widht and height CVSize
+		    Var s As New openCV.CVCSize(32.3, 25.75)
+		    Var w As Integer=s.Width
+		    Var h As Integer=s.Height
+		    Break
+		  End If
+		  If False Then
+		    //Test uchart vector: is uInt8 vector
+		    Var v As New openCV.CVCUCharVector
+		    v.Add 1  //Fails there is not the relative function
+		    v.Add 255//Fails there is not the relative function
+		    Var n As Integer=v.Count
+		    'Var x As UInt8=v.rowAt(0)
+		    'Var x1 As UInt8=v.rowAt(1)
+		    'Var mref As New MemoryBlock(2)
+		    'mref.UInt8Value(0)=x
+		    'mref.UInt8Value(1)=x1
+		    'Var m As MemoryBlock=v.Data
+		    'Var mx1 As Integer=m.UInt8Value(0)
+		    'Var mx2 As Integer=m.UInt8Value(1)
+		    
+		    Break
+		  End If
+		  If True Then
+		    If reference=Nil Then LoadImage
+		    If reference=Nil Then Return
+		    Var m As MemoryBlock=openCV.Codecs.imEncode(".png", reference)
+		    Break
+		  End If
+		  If False Then
+		    Var v As New openCV.CVCRectVector
+		    Var r As openCV.CVCRect
+		    r.x=10
+		    r.y=20
+		    r.width=30
+		    r.height=40
+		    Var m As MemoryBlock=r.StringValue(True)
+		    v.Add r
+		    Var rr As rect=r.toRect
+		    Var r2 As openCV.CVCRect=r
+		    r.x=1000
+		    r.y=2000
+		    r.width=4000
+		    r.height=128
+		    m=r.StringValue(True)
+		    v.Add r
+		    Var n As Integer=v.Count
+		    //Still fails on getting the rect
+		    Var r1 As openCV.CVCRect=v.RowAt(0)
+		    Var r1a As openCV.CVCRect=v.RowAt(1)
+		    Var r1c As openCV.CVCRect=v.RowAt(2)
+		    Break
+		  End If
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -910,6 +1037,14 @@ End
 		Group="Deprecated"
 		InitialValue="True"
 		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="currentImage"
+		Visible=false
+		Group="Behavior"
+		InitialValue=""
+		Type="Picture"
 		EditorType=""
 	#tag EndViewProperty
 #tag EndViewBehavior

@@ -8,12 +8,14 @@ Protected Class CVCRectVector
 
 	#tag Method, Flags = &h0
 		Sub Add(theRect as rect)
-		  Var cRect As cvcRect
-		  cRect.x=CType(theRect.Left, Integer)
-		  cRect.y=CType(theRect.Top, Integer)
-		  cRect.width=CType(theRect.Width, Integer)
-		  cRect.height=CType(theRect.Height, Integer)
-		  CVCRectVectorPushBack(handle, cRect)
+		  Var r As CVCRect
+		  r.x=CType(round(theRect.Left), Integer)
+		  r.y=CType(Round(theRect.top), Integer)
+		  r.width=CType(Round(theRect.Width), Integer)
+		  r.height=CType(Round(theRect.Height), Integer)
+		  
+		  
+		  CVCRectVectorPushBack(handle, r)
 		End Sub
 	#tag EndMethod
 
@@ -30,7 +32,7 @@ Protected Class CVCRectVector
 	#tag EndMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Function CVCRectVectorAt Lib libName (h as Ptr, index as integer) As CVCRect
+		Private Declare Function CVCRectVectorAt Lib libName (h as Ptr, index as integer) As Ptr
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
@@ -58,18 +60,23 @@ Protected Class CVCRectVector
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function RowAt(index as integer) As CVCRect
-		  Var c As CVCRect
-		  c= CVCRectVectorAt(handle, index)
-		  Var m As MemoryBlock=c.StringValue(True)
-		  Return c
+		Function RectAt(index as Int32) As Rect
+		  'Var cRect As cvcRect= CVCRectVectorAt(handle, index)
+		  'Return new Rect(cRect.x, cRect.y, cRect.width, cRect.height)
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h21, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit)) or  (TargetIOS and (Target64Bit))
-		Private Function RowAt(index as UInteger) As Rect
-		  Var cRect As cvcRect= CVCRectVectorAt(handle, index)
-		  Return new Rect(cRect.x, cRect.y, cRect.width, cRect.height)
+	#tag Method, Flags = &h0
+		Function RowAt(index as int32) As CVCRect
+		  If index>=Count Then 
+		    Raise New OutOfBoundsException
+		  End If
+		  Var c As CVCRect
+		  Var p As Ptr=CVCRectVectorAt(handle, index)
+		  Var mm As MemoryBlock=p.Ptr(0)
+		  Var mr As MemoryBlock=mm.StringValue(0, 4*4)
+		  Var m As MemoryBlock=c.StringValue(True)
+		  Return c
 		End Function
 	#tag EndMethod
 

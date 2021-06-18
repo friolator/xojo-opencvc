@@ -14,12 +14,12 @@ Protected Class CVCSize
 
 	#tag Method, Flags = &h0
 		Sub Constructor(width as Double, height as Double)
-		  handle=CVCSizeCreate(CType(width, Integer), CType(height, Integer))
+		  handle=CVCSizeCreate(CType(round(width), int32), CType(round(height), Integer))
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub Constructor(width as integer, height as Integer)
+		Sub Constructor(width as integer, height as integer)
 		  handle=CVCSizeCreate(width, height)
 		End Sub
 	#tag EndMethod
@@ -33,7 +33,7 @@ Protected Class CVCSize
 
 	#tag Method, Flags = &h0
 		Sub Constructor(sz as size)
-		  handle=CVCSizeCreate(CType(sz.Width, Integer), CType(sz.Height, Integer))
+		  handle=CVCSizeCreate(CType(round(sz.Width), int32), CType(round(sz.Height), int32))
 		End Sub
 	#tag EndMethod
 
@@ -57,6 +57,14 @@ Protected Class CVCSize
 		Private Declare Sub CVCSizeFree Lib libName (h as Ptr)
 	#tag EndExternalMethod
 
+	#tag ExternalMethod, Flags = &h21
+		Private Declare Function CVCSizeHeight Lib libName (p as Ptr) As Integer
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Private Declare Function CVCSizeWidth Lib libName (p as Ptr) As Integer
+	#tag EndExternalMethod
+
 	#tag Method, Flags = &h0
 		Sub Destructor()
 		  CVCSizeFree(handle)
@@ -65,8 +73,20 @@ Protected Class CVCSize
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function Height() As Int32
+		  Return CVCSizeHeight(handle)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function isEmpty() As Boolean
 		  Return CVCSizeEmpty(handle)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function Width() As int32
+		  Return CVCSizeWidth(handle)
 		End Function
 	#tag EndMethod
 
