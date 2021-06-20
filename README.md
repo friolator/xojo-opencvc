@@ -2,7 +2,6 @@
 
 ## OpenCV 4.5+ for Xojo, using the OpenCV-C Wrapper
 
-### What is this? 
 The Xojo programming environment (formerly RealBasic, then RealStudio), can only interface with OpenCV through dynamic libraries written in C. As OpenCV has moved away from providing a C API, glue such as [OpenCVX](https://github.com/sonots/opencvx) that relied on that API, no longer works. [OpenCV-C](https://github.com/friolator/OpenCV-C) was developed to fill that gap. 
 
 Xojo-OpenCV-C is a Xojo project that incorporates all of the work done to date on OpenCV-C, exposing all of its functionality as a convenient, easy to use set of classes that allow you to incorporate OpenCV into your project.
