@@ -51,7 +51,14 @@ TO DO
 
 ## Usage
 TO DO
-
+### OpenCV Functions Available
+* core
+  * sub-item
+* imgcodecs
+* imgproc
+* objdetect
+* stitching
+* photo
 
 
 
