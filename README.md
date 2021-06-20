@@ -32,14 +32,14 @@ OpenCV-C is a work in progress. You can read more about it on its Github page, b
 2. Open the project in Xojo
 3. Open your project
 4. Copy/Paste the OpenCV module from Xojo-OpenCV-C to your project
-5. Add a Build Copy operation in Xojo to copy the libOpenCVC.dylib file to your project's Framework folder. 
+5. Add a Build Copy operation in Xojo to copy the external/libOpenCVC.dylib file to your project's Framework folder.
 
 #### Windows
 1. Download Xojo-OpenCV-C
-2. Open the project in Xojo
-3. Open your project
-4. Copy/Paste the OpenCV module from Xojo-OpenCV-C to your project
-5. Add a Build Copy operation in Xojo to copy the OpenCVC.dll file to your project's App Parent folder. 
+3. Open the project in Xojo
+4. Open your project
+5. Copy/Paste the OpenCV module from Xojo-OpenCV-C to your project
+6. Add a Build Copy operation in Xojo to copy the OpenCVC.dll file to your project's App Parent folder. 
 
 #### Linux
 TO DO
