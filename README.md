@@ -27,7 +27,7 @@ This kind of speed allows for much more complex image processing than you could 
 
 OpenCV uses many overloaded functions for convenience, something C does not support. As such, these are left out of OpenCV-C.
 
-OpenCV-C and Xojo-OpenCV-C may not always be in sync. As such, most people should always use the libraries provided in this package, rather than compiling a new one from OpenCV-C. This will ensure that the Xojo code you're working with was tested and is known to work. 
+OpenCV-C and Xojo-OpenCV-C may not always be in sync. Most users should always use the libraries provided in this package, rather than compiling a new one from OpenCV-C. This will ensure that the Xojo code you're working with was tested and is known to work. 
 
 
 ## Installation
