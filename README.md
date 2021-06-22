@@ -4,7 +4,7 @@
 
 The Xojo programming environment (formerly RealBasic, then RealStudio), can only interface with OpenCV through dynamic libraries written in C. As OpenCV has moved away from providing a C API, glue such as [OpenCVX](https://github.com/sonots/opencvx) that relied on that API, no longer works. [OpenCV-C](https://github.com/friolator/OpenCV-C) was developed to fill that gap. 
 
-Xojo-OpenCV-C is a Xojo project that incorporates all of the work done to date on OpenCV-C, exposing all of its functionality as a convenient, easy to use set of classes that allow you to incorporate OpenCV into your project, without having to worry about manually allocating and deallocating OpenCV objects such as mats, structs and vectors.
+Xojo-OpenCV-C is a Xojo project that provides access to all of the work done to date on OpenCV-C, exposing its functionality as a convenient, easy to use set of Xojo classes that allow you to incorporate OpenCV into your project, without having to worry about manually allocating and deallocating OpenCV objects such as mats, structs and vectors.
 
 ### Why do this? 
 Aside from the computer vision and machine learning functionality of OpenCV, there are other reasons to consider using Xojo-OpenCV-C in your projects. If you're working with large files and need to do basic transforms or color space conversions, OpenCV is significantly faster than the built-in Xojo image processing tools, and even some plugins. 
