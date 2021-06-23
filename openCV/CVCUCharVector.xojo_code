@@ -2,7 +2,7 @@
 Protected Class CVCUCharVector
 	#tag Method, Flags = &h0
 		Sub Add(value as UInt8)
-		  CVCUCharPushBack(handle, value)
+		  CVCUCharVectorPushBack(handle, value)
 		End Sub
 	#tag EndMethod
 
@@ -30,27 +30,27 @@ Protected Class CVCUCharVector
 	#tag EndMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Sub CVCUCharPushBack Lib libName (h as Ptr, value as UInt8)
+		Private Declare Function CVCUCharVectorAt Lib LibOpenCVC (h as Ptr, index as UInteger) As UInt8
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Function CVCUCharVectorAt Lib libName (h as Ptr, index as UInteger) As UInt8
+		Private Declare Function CVCUCharVectorCreate Lib LibOpenCVC () As Ptr
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Function CVCUCharVectorCreate Lib libName () As Ptr
+		Private Declare Function CVCUCharVectorData Lib LibOpenCVC (h as Ptr) As Ptr
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Function CVCUCharVectorData Lib libName (h as Ptr) As Ptr
+		Private Declare Sub CVCUCharVectorFree Lib LibOpenCVC (h as Ptr)
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Sub CVCUCharVectorFree Lib libName (h as Ptr)
+		Private Declare Sub CVCUCharVectorPushBack Lib LibOpenCVC (h as Ptr, value as UInt8)
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Function CVCUCharVectorSize Lib libName (h as Ptr) As UInteger
+		Private Declare Function CVCUCharVectorSize Lib LibOpenCVC (h as Ptr) As UInteger
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h0

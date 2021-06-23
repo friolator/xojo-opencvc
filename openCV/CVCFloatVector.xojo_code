@@ -20,27 +20,27 @@ Protected Class CVCFloatVector
 	#tag EndMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Function CVCFloatVectorAt Lib libName (h as Ptr, index as UInteger) As Single
+		Private Declare Function CVCFloatVectorAt Lib LibOpenCVC (h as Ptr, index as UInteger) As Single
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Function CVCFloatVectorCreate Lib libName () As Ptr
+		Private Declare Function CVCFloatVectorCreate Lib LibOpenCVC () As Ptr
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Function CVCFloatVectorData Lib libName (h as Ptr) As Ptr
+		Private Declare Function CVCFloatVectorData Lib LibOpenCVC (h as Ptr) As Ptr
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Sub CVCFloatVectorFree Lib libName (h as Ptr)
+		Private Declare Sub CVCFloatVectorFree Lib LibOpenCVC (h as Ptr)
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Sub CVCFloatVectorPushBack Lib libName (h as Ptr, value as single)
+		Private Declare Sub CVCFloatVectorPushBack Lib LibOpenCVC (h as Ptr, value as single)
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Function CVCFloatVectorSize Lib libName (h as Ptr) As UInteger
+		Private Declare Function CVCFloatVectorSize Lib LibOpenCVC (h as Ptr) As UInteger
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h0

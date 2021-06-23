@@ -8,19 +8,19 @@ Protected Class CVCCascadeClassifier
 	#tag EndMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Function CVCCascadeClassifierCreate Lib libName () As Ptr
+		Private Declare Function CVCCascadeClassifierCreate Lib LibOpenCVC () As Ptr
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Sub CVCCascadeClassifierDetectMultiScale Lib libName (h as Ptr, image as Ptr, rects as Ptr, scale as Double, minNeighbors as Integer, flags as Integer, minSize as Ptr, maxSize as Ptr)
+		Private Declare Sub CVCCascadeClassifierDetectMultiScale Lib LibOpenCVC (h as Ptr, image as Ptr, rects as Ptr, scale as Double, minNeighbors as Integer, flags as Integer, minSize as Ptr, maxSize as Ptr)
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Sub CVCCascadeClassifierFree Lib libName (h as Ptr)
+		Private Declare Sub CVCCascadeClassifierFree Lib LibOpenCVC (h as Ptr)
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Function CVCCascadeClassifierLoad Lib libName (h as Ptr, path as CString) As Boolean
+		Private Declare Function CVCCascadeClassifierLoad Lib LibOpenCVC (h as Ptr, path as CString) As Boolean
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h0

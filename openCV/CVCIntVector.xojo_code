@@ -20,27 +20,27 @@ Protected Class CVCIntVector
 	#tag EndMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Function CVCIntVectorAt Lib libName (h as Ptr, index as UInteger) As int32
+		Private Declare Function CVCIntVectorAt Lib LibOpenCVC (h as Ptr, index as UInteger) As int32
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Function CVCIntVectorCreate Lib libName () As Ptr
+		Private Declare Function CVCIntVectorCreate Lib LibOpenCVC () As Ptr
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Function CVCIntVectorData Lib libName (h as Ptr) As Ptr
+		Private Declare Function CVCIntVectorData Lib LibOpenCVC (h as Ptr) As Ptr
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Sub CVCIntVectorFree Lib libName (h as Ptr)
+		Private Declare Sub CVCIntVectorFree Lib LibOpenCVC (h as Ptr)
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Sub CVCIntVectorPushBack Lib libName (h as Ptr, value as int32)
+		Private Declare Sub CVCIntVectorPushBack Lib LibOpenCVC (h as Ptr, value as int32)
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Function CVCIntVectorSize Lib libName (h as Ptr) As UInteger
+		Private Declare Function CVCIntVectorSize Lib LibOpenCVC (h as Ptr) As UInteger
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h0

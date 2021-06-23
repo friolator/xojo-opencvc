@@ -1,7 +1,7 @@
 #tag Module
 Protected Module Core
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Sub CVCflip Lib libName (src as Ptr, dest as Ptr, flipCode as int32)
+		Private Declare Sub CVCflip Lib LibOpenCVC (src as Ptr, dest as Ptr, flipCode as int32)
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h1
@@ -11,7 +11,7 @@ Protected Module Core
 	#tag EndMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Sub CVCswap Lib libName (a as Ptr, b as Ptr)
+		Private Declare Sub CVCswap Lib LibOpenCVC (a as Ptr, b as Ptr)
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h1

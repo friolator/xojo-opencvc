@@ -15,7 +15,7 @@ Protected Module imgProc
 	#tag EndMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Sub CVCCanny Lib libName (image as Ptr, edges as Ptr, threshold1 as Double, threshold2 as Double, apertureSize as integer, L2gradient as Boolean)
+		Private Declare Sub CVCCanny Lib LibOpenCVC (image as Ptr, edges as Ptr, threshold1 as Double, threshold2 as Double, apertureSize as integer, L2gradient as Boolean)
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h1
@@ -33,7 +33,7 @@ Protected Module imgProc
 	#tag EndMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Sub CVCcvtColor Lib libName (src as Ptr, dst as Ptr, code as ColorConversionCodes, dstCn as Integer)
+		Private Declare Sub CVCcvtColor Lib LibOpenCVC (src as Ptr, dst as Ptr, code as ColorConversionCodes, dstCn as Integer)
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h1
@@ -51,7 +51,7 @@ Protected Module imgProc
 	#tag EndMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Sub CVCGaussianBlur Lib libName (mat As Ptr, dest As Ptr, ksize As Ptr, sigmaX As Double, sigmaY As Double, border As borderTypes)
+		Private Declare Sub CVCGaussianBlur Lib LibOpenCVC (mat As Ptr, dest As Ptr, ksize As Ptr, sigmaX As Double, sigmaY As Double, border As borderTypes)
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h1
@@ -64,11 +64,11 @@ Protected Module imgProc
 	#tag EndMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Function CVCgetGaborKernel Lib libName (ksize as Ptr, sigma as Double, theta as Double, lambda as Double, gamma as Double, psi as Double, type as Integer) As Ptr
+		Private Declare Function CVCgetGaborKernel Lib LibOpenCVC (ksize as Ptr, sigma as Double, theta as Double, lambda as Double, gamma as Double, psi as Double, type as Integer) As Ptr
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Sub CVCrectangle Lib libName (img as Ptr, p1 as cvcPoint, p2 as cvcPoint, color as CVCScalar, thickness as integer, lineType as lineTypes, tipLength as integer)
+		Private Declare Sub CVCrectangle Lib LibOpenCVC (img as Ptr, p1 as cvcPoint, p2 as cvcPoint, color as CVCScalar, thickness as integer, lineType as lineTypes, tipLength as integer)
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h1
@@ -87,7 +87,7 @@ Protected Module imgProc
 	#tag EndMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Sub CVCresize Lib libName (source as Ptr, dest as Ptr, dSize as Ptr, fx as double, fy as double, interpolation as interpolationFlags)
+		Private Declare Sub CVCresize Lib LibOpenCVC (source as Ptr, dest as Ptr, dSize as Ptr, fx as double, fy as double, interpolation as interpolationFlags)
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h1

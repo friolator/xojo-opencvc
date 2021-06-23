@@ -16,19 +16,19 @@ Protected Class CVCVideoCapture
 	#tag EndMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Function CVCVideoCaptureCreate Lib libName () As Ptr
+		Private Declare Function CVCVideoCaptureCreate Lib LibOpenCVC () As Ptr
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Sub CVCVideoCaptureFree Lib libName (h as Ptr)
+		Private Declare Sub CVCVideoCaptureFree Lib LibOpenCVC (h as Ptr)
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Function CVCVideoCaptureIsOpened Lib libName (h as Ptr) As Boolean
+		Private Declare Function CVCVideoCaptureIsOpened Lib LibOpenCVC (h as Ptr) As Boolean
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Function CVCVideoCaptureRead Lib libName (h as Ptr, mat as Ptr) As Boolean
+		Private Declare Function CVCVideoCaptureRead Lib LibOpenCVC (h as Ptr, mat as Ptr) As Boolean
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h0

@@ -1,19 +1,19 @@
 #tag Module
 Protected Module Codecs
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Function CVCimdecode Lib libName (buf as Ptr, flags as imReadModes) As Ptr
+		Private Declare Function CVCimdecode Lib LibOpenCVC (buf as Ptr, flags as imReadModes) As Ptr
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Function CVCimencode Lib libName (fileName as CString, img as Ptr, buf as Ptr, params as Ptr) As Boolean
+		Private Declare Function CVCimencode Lib LibOpenCVC (fileName as CString, img as Ptr, buf as Ptr, params as Ptr) As Boolean
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Function CVCimread Lib libName (fileName as CString, modes as imReadModes) As Ptr
+		Private Declare Function CVCimread Lib LibOpenCVC (fileName as CString, modes as imReadModes) As Ptr
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Function CVCimwrite Lib libName (fileName as CString, img as Ptr, params as Integer, pcount as integer) As Boolean
+		Private Declare Function CVCimwrite Lib LibOpenCVC (fileName as CString, img as Ptr, params as Integer, pcount as integer) As Boolean
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h1

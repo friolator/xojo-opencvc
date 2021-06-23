@@ -1,21 +1,21 @@
 #tag Class
 Protected Class CVCRectVector
 	#tag Method, Flags = &h0
-		Sub Add(rect as cvcRect)
+		Sub Add(byRef rect as CVCRectStructure)
 		  CVCRectVectorPushBack(handle, rect)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub Add(rect as cvcRect)
+		  CVCRectVectorPushBack(handle, rect.Handle)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub Add(theRect as rect)
-		  Var r As CVCRect
-		  r.x=CType(round(theRect.Left), Integer)
-		  r.y=CType(Round(theRect.top), Integer)
-		  r.width=CType(Round(theRect.Width), Integer)
-		  r.height=CType(Round(theRect.Height), Integer)
-		  
-		  
-		  CVCRectVectorPushBack(handle, r)
+		  Var r As New CVCRect(theRect)
+		  CVCRectVectorPushBack(handle, r.Handle)
 		End Sub
 	#tag EndMethod
 
@@ -32,23 +32,27 @@ Protected Class CVCRectVector
 	#tag EndMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Function CVCRectVectorAt Lib libName (h as Ptr, index as integer) As Ptr
+		Private Declare Function CVCRectVectorAt Lib LibOpenCVC (h as Ptr, index as integer) As Ptr
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Function CVCRectVectorCreate Lib libName () As Ptr
+		Private Declare Function CVCRectVectorCreate Lib LibOpenCVC () As Ptr
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Sub CVCRectVectorFree Lib libName (h as Ptr)
+		Private Declare Sub CVCRectVectorFree Lib LibOpenCVC (h as Ptr)
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Sub CVCRectVectorPushBack Lib libName (h as Ptr, rect as cvcRect)
+		Private Declare Sub CVCRectVectorPushBack Lib LibOpenCVC (h as Ptr, byref rect as CVCRectStructure)
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Function CVCRectVectorSize Lib libName (h as Ptr) As UInteger
+		Private Declare Sub CVCRectVectorPushBack Lib LibOpenCVC (h as Ptr, rect as Ptr)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Private Declare Function CVCRectVectorSize Lib LibOpenCVC (h as Ptr) As UInteger
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h0
@@ -71,11 +75,22 @@ Protected Class CVCRectVector
 		  If index>=Count Then 
 		    Raise New OutOfBoundsException
 		  End If
-		  Var c As CVCRect
+		  Var c As New CVCRect(CVCRectVectorAt(handle, index))
+		  Return c
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function RowAts(index as int32) As CVCRectStructure
+		  If index>=Count Then 
+		    Raise New OutOfBoundsException
+		  End If
+		  Var c As CVCRectStructure
 		  Var p As Ptr=CVCRectVectorAt(handle, index)
-		  Var mm As MemoryBlock=p.Ptr(0)
-		  Var mr As MemoryBlock=mm.StringValue(0, 4*4)
-		  Var m As MemoryBlock=c.StringValue(True)
+		  If p<>Nil Then
+		    var m as MemoryBlock=p
+		    c=p.CVCRectStructure(0)
+		  End If
 		  Return c
 		End Function
 	#tag EndMethod

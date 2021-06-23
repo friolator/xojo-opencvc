@@ -8,15 +8,15 @@ Protected Class CVCTermCriteria
 	#tag EndMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Function CVCTermCriteriaCreate Lib libName (type as TermCriteriaTypes, maxCount as integer, epsilon as Double) As Ptr
+		Private Declare Function CVCTermCriteriaCreate Lib LibOpenCVC (type as TermCriteriaTypes, maxCount as integer, epsilon as Double) As Ptr
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Sub CVCTermCriteriaFree Lib libName (h as Ptr)
+		Private Declare Sub CVCTermCriteriaFree Lib LibOpenCVC (h as Ptr)
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Function CVCTermCriteriaIsValid Lib libName (h as Ptr) As Boolean
+		Private Declare Function CVCTermCriteriaIsValid Lib LibOpenCVC (h as Ptr) As Boolean
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h0
@@ -77,14 +77,6 @@ Protected Class CVCTermCriteria
 			Visible=true
 			Group="Position"
 			InitialValue="0"
-			Type="Integer"
-			EditorType=""
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="handle"
-			Visible=false
-			Group="Behavior"
-			InitialValue=""
 			Type="Integer"
 			EditorType=""
 		#tag EndViewProperty

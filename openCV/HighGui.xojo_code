@@ -1,15 +1,15 @@
 #tag Module
 Protected Module HighGui
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Sub CVCdestroyAllWindows Lib libName ()
+		Private Declare Sub CVCdestroyAllWindows Lib LibOpenCVC ()
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Sub CVCimshow Lib libName (windowName as CString, image as Ptr)
+		Private Declare Sub CVCimshow Lib LibOpenCVC (windowName as CString, image as Ptr)
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Function CVCwaitKey Lib libName (delay as Int32) As integer
+		Private Declare Function CVCwaitKey Lib LibOpenCVC (delay as Int32) As integer
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h1

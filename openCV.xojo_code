@@ -1,25 +1,47 @@
 #tag Module
 Protected Module openCV
 	#tag Method, Flags = &h0
-		Function operator_convert(extends r as Rect) As CVCRect
-		  Var reply As CVCRect
-		  reply.x=CType(round(r.Left), Int32)
-		  reply.y=CType(Round(r.top), Int32)
-		  reply.width=CType(Round(r.Width), Int32)
-		  reply.height=CType(Round(r.Height), Int32)
-		  Return reply
+		Function toCVCRectStructure(extends r as Rect) As CVCRectStructure
+		  Var s As CVCRectStructure
+		  s.x=CType(Round(r.Left), Int32)
+		  s.y=CType(Round(r.top), Int32)
+		  s.width=CType(Round(r.Width), Int32)
+		  s.height=CType(Round(r.Height), Int32)
+		  Return s
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function toRect(extends src as cvcRect) As Rect
-		  Var r As New Rect(src.x, src.y, src.width, src.height)
-		  Return r
+		Function toRect(extends r as CVCRectStructure) As Rect
+		  Return new rect(r.x, r.y, r.width, r.height)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function toScalar(extends c as Color) As CVCScalar
+		  Var s As CVCScalar
+		  s.v0=c.Blue
+		  s.v1=c.Red
+		  s.v2=c.Green
+		  s.v3=(255-c.Alpha)
+		  Return s
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function toString(extends p as CVCPoint) As String
+		  Return p.x.ToString+", "+p.y.ToString
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function toString(extends r as CVCRectStructure) As String
+		  Return r.x.ToString+", "+r.y.ToString+" x "+r.width.ToString+", "+r.height.ToString
 		End Function
 	#tag EndMethod
 
 
-	#tag Constant, Name = libName, Type = String, Dynamic = False, Default = \"openCv", Scope = Private
+	#tag Constant, Name = LibOpenCVC, Type = String, Dynamic = False, Default = \"openCv", Scope = Private
 		#Tag Instance, Platform = Mac OS, Language = Default, Definition  = \"@executable_path/../Frameworks/libOpenCVC.dylib"
 	#tag EndConstant
 
@@ -34,8 +56,8 @@ Protected Module openCV
 		y as double
 	#tag EndStructure
 
-	#tag Structure, Name = CVCRect, Flags = &h0
-		x as Int32
+	#tag Structure, Name = CVCRectStructure, Flags = &h0
+		x as int32
 		  y as int32
 		  width as int32
 		height as int32

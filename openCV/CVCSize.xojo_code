@@ -38,31 +38,31 @@ Protected Class CVCSize
 	#tag EndMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Function CVCSizeArea Lib libName (h as Ptr) As Integer
+		Private Declare Function CVCSizeArea Lib LibOpenCVC (h as Ptr) As Integer
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Function CVCSizeAspectRatio Lib libName (h as Ptr) As Double
+		Private Declare Function CVCSizeAspectRatio Lib LibOpenCVC (h as Ptr) As Double
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Function CVCSizeCreate Lib libName (w as integer, h as integer) As Ptr
+		Private Declare Function CVCSizeCreate Lib LibOpenCVC (w as integer, h as integer) As Ptr
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Function CVCSizeEmpty Lib libName (h as Ptr) As Boolean
+		Private Declare Function CVCSizeEmpty Lib LibOpenCVC (h as Ptr) As Boolean
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Sub CVCSizeFree Lib libName (h as Ptr)
+		Private Declare Sub CVCSizeFree Lib LibOpenCVC (h as Ptr)
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Function CVCSizeHeight Lib libName (p as Ptr) As Integer
+		Private Declare Function CVCSizeHeight Lib LibOpenCVC (p as Ptr) As Integer
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
-		Private Declare Function CVCSizeWidth Lib libName (p as Ptr) As Integer
+		Private Declare Function CVCSizeWidth Lib LibOpenCVC (p as Ptr) As Integer
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h0
