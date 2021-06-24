@@ -21,8 +21,8 @@ Protected Module openCV
 		Function toScalar(extends c as Color) As CVCScalar
 		  Var s As CVCScalar
 		  s.v0=c.Blue
-		  s.v1=c.Red
-		  s.v2=c.Green
+		  s.v1=c.Green
+		  s.v2=c.Red
 		  s.v3=(255-c.Alpha)
 		  Return s
 		End Function
