@@ -18,7 +18,10 @@ Protected Module Codecs
 
 	#tag Method, Flags = &h1
 		Protected Function imdecode(m as MemoryBlock, flags as openCV.imReadModes) As CVCMat
+		  Var t As Double=System.Microseconds
 		  Var c As New CVCUCharVector(m)
+		  t=System.Microseconds-t
+		  System.DebugLog "MM"+t.ToString
 		  Var p As Ptr=CVCimdecode(c.handle, flags)
 		  If p<>Nil Then
 		    Return new CVCMat(p)
@@ -33,7 +36,7 @@ Protected Module Codecs
 		    p.add params(i)
 		  Next
 		  Var buf As New CVCUCharVector
-		  If CVCimencode(fileName, img.Handle, buf.handle, p.Handle) Then
+		  If CVCimencode(fileName, img.Handle, buf.Handle, p.Handle) Then
 		    Var m As MemoryBlock=buf.data
 		    Return m
 		  End If

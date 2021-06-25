@@ -2,13 +2,13 @@
 Protected Class CVCMat
 	#tag Method, Flags = &h0
 		Sub Constructor()
-		  handle=CVCMatCreate()
+		  mHandle=CVCMatCreate()
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub Constructor(h as Ptr)
-		  handle=h
+		  mHandle=h
 		  
 		End Sub
 	#tag EndMethod
@@ -35,20 +35,20 @@ Protected Class CVCMat
 
 	#tag Method, Flags = &h0
 		Sub Destructor()
-		  CVCMatFree(handle)
-		  handle=nil
+		  CVCMatFree(mHandle)
+		  mHandle=nil
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function Handle() As Ptr
-		  Return handle
+		  Return mHandle
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function Height() As integer
-		  Return CVCMatHeight(handle)
+		  Return CVCMatHeight(mHandle)
 		End Function
 	#tag EndMethod
 
@@ -56,7 +56,6 @@ Protected Class CVCMat
 		Function image() As Picture
 		  Var f As FolderItem=FolderItem.TemporaryFile
 		  f.Name=f.Name+".png"
-		  
 		  Var ok As Boolean=Codecs.imwrite(f.NativePath, Me)
 		  If ok Then
 		    Var p As Picture=Picture.Open(f)
@@ -68,30 +67,38 @@ Protected Class CVCMat
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function image1() As Picture
+		  Var m As MemoryBlock=openCV.Codecs.imEncode(".png", Me)// CType(openCV.ImWriteFlags.PngCompression, Integer), 9)
+		  Var p As Picture=Picture.FromData(m)
+		  Return p
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function Roi(theRect as CVCRect) As CVCMat
-		  Var h As Ptr=CVCMatRoi(handle, theRect.Handle)
+		  Var h As Ptr=CVCMatRoi(mHandle, theRect.Handle)
 		  Return new CVCMat(h)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function Roi(theRect as rect) As CVCMat
-		  Var r As New cvcRect(theRect)
+		  Var r As New CVCRect(theRect)
 		  
-		  Var h As Ptr=CVCMatRoi(handle, r.Handle)
-		  Return new CVCMat(h)
+		  Var h As Ptr=CVCMatRoi(mHandle, r.Handle)
+		  Return New CVCMat(h)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function Width() As integer
-		  Return CVCMatWidth(handle)
+		  Return CVCMatWidth(mHandle)
 		End Function
 	#tag EndMethod
 
 
 	#tag Property, Flags = &h21
-		Private handle As Ptr
+		Private mHandle As Ptr
 	#tag EndProperty
 
 

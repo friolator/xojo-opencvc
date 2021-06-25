@@ -2,7 +2,7 @@
 Protected Class CVCUCharVector
 	#tag Method, Flags = &h0
 		Sub Add(value as UInt8)
-		  CVCUCharVectorPushBack(handle, value)
+		  CVCUCharVectorPushBack(mhandle, value)
 		End Sub
 	#tag EndMethod
 
@@ -24,8 +24,14 @@ Protected Class CVCUCharVector
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub Constructor(h as Ptr)
+		  mhandle=h
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function Count() As UInteger
-		  Return CVCUCharVectorSize(handle)
+		  Return CVCUCharVectorSize(mhandle)
 		End Function
 	#tag EndMethod
 
@@ -55,39 +61,38 @@ Protected Class CVCUCharVector
 
 	#tag Method, Flags = &h0
 		Function Data() As MemoryBlock
-		  Var p As Ptr=CVCUCharVectorData(handle)
+		  Var p As Ptr=CVCUCharVectorData(mhandle)
 		  If p<>Nil Then
 		    Var m As MemoryBlock=p
 		    Var mr As MemoryBlock=m.StringValue(0, Count)
 		    Return mr
 		  End If
+		  
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub Destructor()
-		  CVCUCharVectorFree(handle)
+		  CVCUCharVectorFree(mhandle)
+		  mhandle=nil
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function rowAt(index as UInteger) As UInt8
-		  If index>=Count Then 
-		    Raise New OutOfBoundsException
-		  End If
-		  Return CVCUCharVectorAt(handle, index)
+		Function Handle() As Ptr
+		  Return mhandle
 		End Function
 	#tag EndMethod
 
+	#tag Method, Flags = &h0
+		Function RowAt(index as UInteger) As UInt8
+		  If index>=Count Then 
+		    Raise New OutOfBoundsException
+		  End If
+		  Return CVCUCharVectorAt(mhandle, index)
+		End Function
+	#tag EndMethod
 
-	#tag ComputedProperty, Flags = &h0
-		#tag Getter
-			Get
-			  Return mhandle
-			End Get
-		#tag EndGetter
-		handle As Ptr
-	#tag EndComputedProperty
 
 	#tag Property, Flags = &h21
 		Private mhandle As Ptr

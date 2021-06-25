@@ -1,33 +1,34 @@
 #tag Class
 Protected Class CVCRectVector
 	#tag Method, Flags = &h0
-		Sub Add(byRef rect as CVCRectStructure)
-		  CVCRectVectorPushBack(handle, rect)
+		Sub Add(rect as cvcRect)
+		  CVCRectVectorPushBack(mHandle, rect.Handle)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub Add(rect as cvcRect)
-		  CVCRectVectorPushBack(handle, rect.Handle)
+		Sub Add(rect as CVCRectStructure)
+		  Var rr As New CVCRect(rect)
+		  CVCRectVectorPushBack(handle, rr.Handle)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub Add(theRect as rect)
 		  Var r As New CVCRect(theRect)
-		  CVCRectVectorPushBack(handle, r.Handle)
+		  CVCRectVectorPushBack(mHandle, r.Handle)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub Constructor()
-		  handle=CVCRectVectorCreate
+		  mHandle=CVCRectVectorCreate
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function Count() As UInteger
-		  Return CVCRectVectorSize(handle)
+		  Return CVCRectVectorSize(mHandle)
 		End Function
 	#tag EndMethod
 
@@ -43,8 +44,8 @@ Protected Class CVCRectVector
 		Private Declare Sub CVCRectVectorFree Lib LibOpenCVC (h as Ptr)
 	#tag EndExternalMethod
 
-	#tag ExternalMethod, Flags = &h21
-		Private Declare Sub CVCRectVectorPushBack Lib LibOpenCVC (h as Ptr, byref rect as CVCRectStructure)
+	#tag ExternalMethod, Flags = &h21, CompatibilityFlags = (TargetConsole and (Target32Bit or Target64Bit)) or  (TargetWeb and (Target32Bit or Target64Bit)) or  (TargetDesktop and (Target32Bit)) or  (TargetIOS and (Target64Bit))
+		Attributes( deprecated ) Private Declare Sub CVCRectVectorPushBack Lib LibOpenCVC (h as Ptr, byref rect as CVCRectStructure)
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
@@ -57,14 +58,20 @@ Protected Class CVCRectVector
 
 	#tag Method, Flags = &h0
 		Sub Destructor()
-		  CVCRectVectorFree(handle)
-		  handle=Nil
+		  CVCRectVectorFree(mHandle)
+		  mHandle=Nil
 		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function RectAt(index as Int32) As Rect
+		Function Handle() As Ptr
+		  return mHandle
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Attributes( deprecated )  Function RectAt(index as Int32) As Rect
 		  'Var cRect As cvcRect= CVCRectVectorAt(handle, index)
 		  'Return new Rect(cRect.x, cRect.y, cRect.width, cRect.height)
 		End Function
@@ -75,7 +82,7 @@ Protected Class CVCRectVector
 		  If index>=Count Then 
 		    Raise New OutOfBoundsException
 		  End If
-		  Var c As New CVCRect(CVCRectVectorAt(handle, index))
+		  Var c As New CVCRect(CVCRectVectorAt(mHandle, index))
 		  Return c
 		End Function
 	#tag EndMethod
@@ -86,9 +93,9 @@ Protected Class CVCRectVector
 		    Raise New OutOfBoundsException
 		  End If
 		  Var c As CVCRectStructure
-		  Var p As Ptr=CVCRectVectorAt(handle, index)
+		  Var p As Ptr=CVCRectVectorAt(mHandle, index)
 		  If p<>Nil Then
-		    var m as MemoryBlock=p
+		    Var m As MemoryBlock=p
 		    c=p.CVCRectStructure(0)
 		  End If
 		  Return c
@@ -96,8 +103,8 @@ Protected Class CVCRectVector
 	#tag EndMethod
 
 
-	#tag Property, Flags = &h0
-		handle As Ptr
+	#tag Property, Flags = &h21
+		Private mHandle As Ptr
 	#tag EndProperty
 
 

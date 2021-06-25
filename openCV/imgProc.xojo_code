@@ -71,6 +71,10 @@ Protected Module imgProc
 		Private Declare Sub CVCrectangle Lib LibOpenCVC (img as Ptr, p1 as cvcPoint, p2 as cvcPoint, color as CVCScalar, thickness as integer, lineType as lineTypes, tipLength as integer)
 	#tag EndExternalMethod
 
+	#tag ExternalMethod, Flags = &h21
+		Private Declare Sub CVCrectangle2 Lib LibOpenCVC (img as Ptr, r as Ptr, color as CVCScalar, thickness as integer, lineType as lineTypes, tipLength as integer)
+	#tag EndExternalMethod
+
 	#tag Method, Flags = &h1
 		Protected Sub CVCresize(source as CVCMat, dest as CVCMat, dSize as CVCSize, fx as double, fy as double, interpolation as interpolationFlags)
 		  
@@ -91,8 +95,24 @@ Protected Module imgProc
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h1
+		Protected Sub CVCSobel(src as CVCMat, dest as CVCMat, depth as integer, dx as integer, dy as Integer, ksize as integer, scale as Double, delta as Double, borderType as borderTypes)
+		  CVCSobel(src.Handle, dest.Handle, depth, dx, dy, ksize, scale, delta, borderType)
+		End Sub
+	#tag EndMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Private Declare Sub CVCSobel Lib LibOpenCVC (src as Ptr, dest as Ptr, depth as integer, dx as integer, dy as Integer, ksize as integer, scale as Double, delta as Double, borderType as borderTypes)
+	#tag EndExternalMethod
+
+	#tag Method, Flags = &h1
 		Protected Sub Rectangle(img as CVCMat, p1 as cvcPoint, p2 as cvcPoint, lineColor as cvcScalar, thickness as Integer, lineType as lineTypes, sh as integer)
 		  CVCrectangle(img.handle, p1, p2, lineColor, thickness, lineType, sh)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Sub Rectangle2(img as CVCMat, r as CVCRect, lineColor as cvcScalar, thickness as Integer = 1, lineType as lineTypes = lineTypes.Line8, sh as integer = 0)
+		  CVCrectangle2(img.handle, r.handle, lineColor, thickness, lineType, sh)
 		End Sub
 	#tag EndMethod
 

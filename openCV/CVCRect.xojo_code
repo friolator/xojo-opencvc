@@ -2,25 +2,31 @@
 Protected Class CVCRect
 	#tag Method, Flags = &h0
 		Function Area() As integer
-		  Return CVCRectArea(handle)
+		  Return CVCRectArea(mHandle)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub Constructor(r as CVCRectStructure)
+		  mHandle=CVCRectCreate(r.x, r.y, r.width, r.height)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub Constructor(x as integer, y as Integer, w as Integer, h as Integer)
-		  handle=CVCRectCreate(x, y, w, h)
+		  mHandle=CVCRectCreate(x, y, w, h)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub Constructor(h as Ptr)
-		  handle=h
+		  mHandle=h
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub Constructor(r as Rect)
-		  handle=CVCRectCreate(CType(round(r.Left), Integer), CType(round(r.top), Integer), ctype(round(r.Width), integer), CType(round(r.Width), integer))
+		  mHandle=CVCRectCreate(CType(round(r.Left), Integer), CType(round(r.top), Integer), ctype(round(r.Width), integer), CType(round(r.Height), integer))
 		End Sub
 	#tag EndMethod
 
@@ -58,19 +64,19 @@ Protected Class CVCRect
 
 	#tag Method, Flags = &h0
 		Function Handle() As Ptr
-		  Return handle
+		  Return mHandle
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function Height() As integer
-		  Return CVCRectHeight(handle)
+		  Return CVCRectHeight(mHandle)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function isEmpty() As Boolean
-		  Return CVCRectEmpty(handle)
+		  Return CVCRectEmpty(mHandle)
 		End Function
 	#tag EndMethod
 
@@ -117,25 +123,25 @@ Protected Class CVCRect
 
 	#tag Method, Flags = &h0
 		Function Width() As integer
-		  Return CVCRectWidth(handle)
+		  Return CVCRectWidth(mHandle)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function X() As integer
-		  Return CVCRectX(handle)
+		  Return CVCRectX(mHandle)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function Y() As integer
-		  Return CVCRectY(handle)
+		  Return CVCRectY(mHandle)
 		End Function
 	#tag EndMethod
 
 
 	#tag Property, Flags = &h21
-		Private handle As Ptr
+		Private mHandle As Ptr
 	#tag EndProperty
 
 

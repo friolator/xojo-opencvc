@@ -373,6 +373,16 @@ Protected Module openCV
 		Normal = 16
 	#tag EndEnum
 
+	#tag Enum, Name = Depths, Type = Integer, Flags = &h1
+		CV8U=0
+		  CV8S=1
+		  CV16U=2
+		  CV16S=3
+		  CV32S=4
+		  CV32F=5
+		CV64F=6
+	#tag EndEnum
+
 	#tag Enum, Name = DftFlags, Type = Int16, Flags = &h1
 		Inverse = 1
 		  Scale = 2

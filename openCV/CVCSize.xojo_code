@@ -2,38 +2,38 @@
 Protected Class CVCSize
 	#tag Method, Flags = &h0
 		Function Area() As Integer
-		  Return CVCSizeArea(handle)
+		  Return CVCSizeArea(mHandle)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function AspectRatio() As Double
-		  Return CVCSizeAspectRatio(handle)
+		  Return CVCSizeAspectRatio(mHandle)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub Constructor(width as Double, height as Double)
-		  handle=CVCSizeCreate(CType(round(width), int32), CType(round(height), Integer))
+		  mHandle=CVCSizeCreate(CType(round(width), int32), CType(round(height), Integer))
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub Constructor(width as integer, height as integer)
-		  handle=CVCSizeCreate(width, height)
+		  mHandle=CVCSizeCreate(width, height)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub Constructor(h as Ptr)
-		  handle=h
+		  mHandle=h
 		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub Constructor(sz as size)
-		  handle=CVCSizeCreate(CType(round(sz.Width), int32), CType(round(sz.Height), int32))
+		  mHandle=CVCSizeCreate(CType(round(sz.Width), int32), CType(round(sz.Height), int32))
 		End Sub
 	#tag EndMethod
 
@@ -67,32 +67,38 @@ Protected Class CVCSize
 
 	#tag Method, Flags = &h0
 		Sub Destructor()
-		  CVCSizeFree(handle)
-		  handle=nil
+		  CVCSizeFree(mHandle)
+		  mHandle=nil
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function Handle() As Ptr
+		  Return mHandle
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function Height() As Int32
-		  Return CVCSizeHeight(handle)
+		  Return CVCSizeHeight(mHandle)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function isEmpty() As Boolean
-		  Return CVCSizeEmpty(handle)
+		  Return CVCSizeEmpty(mHandle)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function Width() As int32
-		  Return CVCSizeWidth(handle)
+		  Return CVCSizeWidth(mHandle)
 		End Function
 	#tag EndMethod
 
 
-	#tag Property, Flags = &h0
-		handle As Ptr
+	#tag Property, Flags = &h21
+		Private mHandle As Ptr
 	#tag EndProperty
 
 

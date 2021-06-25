@@ -2,7 +2,7 @@
 Protected Class CVCTermCriteria
 	#tag Method, Flags = &h0
 		Sub Constructor(type as TermCriteriaTypes, maxCount as integer, epsilon as Double)
-		  handle=CVCTermCriteriaCreate(type, maxCount, epsilon)
+		  mhandle=CVCTermCriteriaCreate(type, maxCount, epsilon)
 		  
 		End Sub
 	#tag EndMethod
@@ -21,21 +21,27 @@ Protected Class CVCTermCriteria
 
 	#tag Method, Flags = &h0
 		Sub Destructor()
-		  CVCTermCriteriaFree(handle)
-		  handle=Nil
+		  CVCTermCriteriaFree(mhandle)
+		  mhandle=Nil
 		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function Handle() As Ptr
+		  Return mHandle
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function isValid() As Boolean
-		  Return CVCTermCriteriaIsValid(handle)
+		  Return CVCTermCriteriaIsValid(mHandle)
 		End Function
 	#tag EndMethod
 
 
-	#tag Property, Flags = &h0
-		handle As Ptr
+	#tag Property, Flags = &h21
+		Private mHandle As Ptr
 	#tag EndProperty
 
 

@@ -2,20 +2,20 @@
 Protected Class CVCIntVector
 	#tag Method, Flags = &h0
 		Sub Add(value as int32)
-		  CVCIntVectorPushBack(handle, value)
+		  CVCIntVectorPushBack(mHandle, value)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub Constructor()
-		  handle=CVCIntVectorCreate
+		  mHandle=CVCIntVectorCreate
 		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function Count() As UInteger
-		  Return CVCIntVectorSize(handle)
+		  Return CVCIntVectorSize(mHandle)
 		End Function
 	#tag EndMethod
 
@@ -45,7 +45,7 @@ Protected Class CVCIntVector
 
 	#tag Method, Flags = &h0
 		Function Data() As MemoryBlock
-		  Var p As Ptr=CVCIntVectorData(handle)
+		  Var p As Ptr=CVCIntVectorData(mHandle)
 		  If p<>Nil Then
 		    Var m As MemoryBlock=p
 		    Var mr As MemoryBlock=m.StringValue(0, Count*4)
@@ -56,13 +56,14 @@ Protected Class CVCIntVector
 
 	#tag Method, Flags = &h0
 		Sub Destructor()
-		  CVCIntVectorFree(handle)
+		  CVCIntVectorFree(mHandle)
+		  mHandle=nil
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function Handle() As Ptr
-		  
+		  Return mHandle
 		End Function
 	#tag EndMethod
 
@@ -71,13 +72,13 @@ Protected Class CVCIntVector
 		  If index>=Count Then 
 		    Raise New OutOfBoundsException
 		  End If
-		  Return CVCIntVectorAt(handle, index)
+		  Return CVCIntVectorAt(mHandle, index)
 		End Function
 	#tag EndMethod
 
 
 	#tag Property, Flags = &h21
-		Private handle As Ptr
+		Private mHandle As Ptr
 	#tag EndProperty
 
 

@@ -374,7 +374,7 @@ Begin Window Window1
       Visible         =   True
       Width           =   465
    End
-   Begin PushButton PushButton1
+   Begin PushButton bTest
       AllowAutoDeactivate=   True
       Bold            =   False
       Cancel          =   False
@@ -406,7 +406,7 @@ Begin Window Window1
       Visible         =   True
       Width           =   80
    End
-   Begin PushButton PushButton4
+   Begin PushButton bFaces
       AllowAutoDeactivate=   True
       Bold            =   False
       Cancel          =   False
@@ -504,6 +504,230 @@ Begin Window Window1
       Underline       =   False
       Visible         =   True
       Width           =   264
+   End
+   Begin PushButton bSobel
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Cancel          =   False
+      Caption         =   "Sobel"
+      Default         =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   20
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   20
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      MacButtonStyle  =   0
+      Scope           =   2
+      TabIndex        =   16
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Tooltip         =   ""
+      Top             =   333
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   80
+   End
+   Begin Slider sobelParam
+      AllowAutoDeactivate=   True
+      AllowLiveScrolling=   False
+      Enabled         =   True
+      Height          =   23
+      Index           =   0
+      InitialParent   =   ""
+      Left            =   112
+      LineStep        =   1
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      MaximumValue    =   20
+      MinimumValue    =   1
+      PageStep        =   20
+      Scope           =   2
+      TabIndex        =   17
+      TabPanelIndex   =   0
+      TabStop         =   True
+      TickMarkStyle   =   0
+      Tooltip         =   ""
+      Top             =   333
+      Transparent     =   False
+      Value           =   1
+      Visible         =   True
+      Width           =   100
+   End
+   Begin Label tSobleParam
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      DataField       =   ""
+      DataSource      =   ""
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   20
+      Index           =   0
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   224
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   2
+      Selectable      =   False
+      TabIndex        =   18
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "Untitled"
+      TextAlignment   =   0
+      TextColor       =   &c00000000
+      Tooltip         =   ""
+      Top             =   333
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   74
+   End
+   Begin Slider sobelParam
+      AllowAutoDeactivate=   True
+      AllowLiveScrolling=   False
+      Enabled         =   True
+      Height          =   23
+      Index           =   1
+      InitialParent   =   ""
+      Left            =   112
+      LineStep        =   1
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      MaximumValue    =   20
+      MinimumValue    =   1
+      PageStep        =   20
+      Scope           =   2
+      TabIndex        =   19
+      TabPanelIndex   =   0
+      TabStop         =   True
+      TickMarkStyle   =   0
+      Tooltip         =   ""
+      Top             =   365
+      Transparent     =   False
+      Value           =   1
+      Visible         =   True
+      Width           =   100
+   End
+   Begin Label tSobleParam
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      DataField       =   ""
+      DataSource      =   ""
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   20
+      Index           =   1
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   224
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   2
+      Selectable      =   False
+      TabIndex        =   20
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "Untitled"
+      TextAlignment   =   0
+      TextColor       =   &c00000000
+      Tooltip         =   ""
+      Top             =   365
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   74
+   End
+   Begin Slider sobelParam
+      AllowAutoDeactivate=   True
+      AllowLiveScrolling=   False
+      Enabled         =   True
+      Height          =   23
+      Index           =   2
+      InitialParent   =   ""
+      Left            =   112
+      LineStep        =   1
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      MaximumValue    =   20
+      MinimumValue    =   0
+      PageStep        =   20
+      Scope           =   2
+      TabIndex        =   21
+      TabPanelIndex   =   0
+      TabStop         =   True
+      TickMarkStyle   =   0
+      Tooltip         =   ""
+      Top             =   397
+      Transparent     =   False
+      Value           =   0
+      Visible         =   True
+      Width           =   100
+   End
+   Begin Label tSobleParam
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      DataField       =   ""
+      DataSource      =   ""
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   20
+      Index           =   2
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   224
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   2
+      Selectable      =   False
+      TabIndex        =   22
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "Untitled"
+      TextAlignment   =   0
+      TextColor       =   &c00000000
+      Tooltip         =   ""
+      Top             =   397
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   74
    End
 End
 #tag EndWindow
@@ -893,7 +1117,7 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events PushButton1
+#tag Events bTest
 	#tag Event
 		Sub Action()
 		  If False Then
@@ -955,13 +1179,40 @@ End
 		    
 		    Break
 		  End If
-		  If False Then
+		  If False Then  //Test the imEncode
 		    If reference=Nil Then LoadImage
 		    If reference=Nil Then Return
-		    Var m As MemoryBlock=openCV.Codecs.imEncode(".png", reference)
-		    Break
+		    currentImage=Nil
+		    Var m As MemoryBlock=openCV.Codecs.imEncode(".png", reference, CType(openCV.ImWriteFlags.PngCompression, Integer), 9) //without these params is faster, 
+		    Var p As Picture=Picture.FromData(m)
+		    currentImage=p
 		  End If
-		  If True Then
+		  If True Then //test time (results in system.debug pane) image (mat to picture via file) vs image1 (mat to picture via memory)
+		    rects.RemoveAll
+		    If sampleImage.RowCount=0 Then Return
+		    Var f As FolderItem=loadFromResource(sampleImage.RowTagAt(sampleImage.SelectedRowIndex))
+		    reference=openCV.Codecs.imread(f.NativePath, openCV.ImReadModes.Unchanged)
+		    Var p2 As Picture
+		    Var p1 As Picture
+		    Var t As Double=System.Microseconds
+		    p1=reference.image
+		    t=System.Microseconds-t
+		    System.DebugLog "via File:"+p1.Width.ToString+"x"+p1.Height.ToString+":"+t.ToString
+		    t=System.Microseconds
+		    p2=reference.image1
+		    t=System.Microseconds-t
+		    System.DebugLog "via Memory:"+p2.Width.ToString+"x"+p2.Height.ToString+":"+t.ToString
+		    t=System.Microseconds
+		    currentImage=p2
+		  End If
+		  If False Then
+		    If reference=Nil Then LoadImage
+		    Var p As Picture=reference.image
+		    Var m As MemoryBlock=p.ToData(Picture.Formats.PNG)
+		    Var result As openCV.CVCMat=openCV.Codecs.imdecode(m, openCV.ImReadModes.Color)
+		    currentImage=result.image
+		  End If
+		  If False Then
 		    #If False
 		      //CVCRect as Object
 		      Var v As New openCV.CVCRectVector
@@ -985,8 +1236,8 @@ End
 		      r.height=40
 		      v.Add r
 		      Var xr As Rect=New rect(1000, 2000, 4000, 128)
-		      Var r1 As CVCRectStructure=xr.toCVCRectStructure
-		      v.Add r1
+		      
+		      v.Add xr
 		      Var n As Integer=v.Count
 		      Var vr1 As CVCRectStructure=v.RowAts(0)
 		      Var vr2 As CVCRectStructure=v.RowAts(1)
@@ -997,16 +1248,17 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events PushButton4
+#tag Events bFaces
 	#tag Event
 		Sub Action()
 		  rects.RemoveAll
 		  If sampleImage.RowCount=0 Then Return
 		  Var f As FolderItem=loadFromResource(sampleImage.RowTagAt(sampleImage.SelectedRowIndex))
 		  If f=Nil Then Return
-		  Var startTime As Double=System.Microseconds
 		  Var src As openCV.CVCMat=openCV.Codecs.imread(f.NativePath, openCV.ImReadModes.Unchanged)
+		  
 		  currentImage=src.image
+		  Var startTime As Double=System.Microseconds
 		  
 		  
 		  Var faceCascade As New openCV.CVCCascadeClassifier
@@ -1051,7 +1303,8 @@ End
 		    System.DebugLog "point2:"+point2.toString
 		    
 		    Var scalarColor As cvcScalar=Color.Green.toScalar
-		    openCV.imgProc.Rectangle(gray, point1, point2, scalarColor, 2, openCV.LineTypes.lineAA, -1)
+		    openCV.imgProc.Rectangle2(roiSrc, roiRect, scalarColor, -1)
+		    //openCV.imgProc.Rectangle(gray, point1, point2, scalarColor, 2, openCV.LineTypes.lineAA, -1)
 		    rr.Add r
 		    
 		    Var eyes As New openCV.CVCRectVector
@@ -1065,17 +1318,75 @@ End
 		      System.DebugLog "point1e:"+point1e.toString
 		      Var point2e As openCV.CVCPoint=roiRectE.RightBottom
 		      System.DebugLog "point2e:"+point2e.toString
-		      Var scalarColorE As CVCScalar=Color.yellow.toScalar
-		      openCV.imgProc.Rectangle(roiSrc, Point1e, Point2e, scalarColorE, 1, openCV.LineTypes.Line4, 10)
+		      Var scalarColorE As CVCScalar=Color.blue.toScalar
+		      openCV.imgProc.Rectangle2(roiSrc, roiRectE, scalarColorE, 4, openCV.LineTypes.lineAA)
+		      //openCV.imgProc.Rectangle(roiSrc, Point1e, Point2e, scalarColorE, 1, openCV.LineTypes.Line4, 10)
 		      re.Offset(r.Left, r.Top)
-		      ee.Add re
+		      //ee.Add re
 		    Next
 		  Next
+		  showTime(startTime, lblFaces)
 		  currentImage=src.image
 		  rects.Add Color.Yellow:rr
 		  rects.Add Color.Red:ee
 		  
-		  showTime(startTime, lblFaces)
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events bSobel
+	#tag Event
+		Sub Action()
+		  Var n As Integer=Runtime.ObjectCount
+		  Var mn As Integer=Runtime.MemoryUsed
+		  rects.RemoveAll
+		  If sampleImage.RowCount=0 Then Return
+		  If True Then
+		    Var f As FolderItem=loadFromResource(sampleImage.RowTagAt(sampleImage.SelectedRowIndex))
+		    If f=Nil Then Return
+		    Var image As openCV.CVCMat=openCV.Codecs.imread(f.NativePath, openCV.ImReadModes.Unchanged)
+		    
+		    currentImage=image.image
+		    Var ksize As Integer=sobelParam(0).Value*2-1 //ksize must be odd
+		    ksize=min(ksize, 31) //max ksize value is 31
+		    ksize=max(ksize, 1) //min ksize is 1
+		    Var scale As Integer=sobelParam(1).Value
+		    Var delta As Integer=sobelParam(2).Value
+		    
+		    
+		    Var depth As openCV.depths=openCV.Depths.CV16S
+		    Var src As New openCV.CVCMat
+		    openCV.imgProc.CVCGaussianBlur(image, src, New openCV.CVCSize(3, 3), 0, 0, openCV.BorderTypes.Default)
+		    
+		    Var srcGray As New openCV.CVCMat
+		    openCV.imgProc.CVCCvtColor(src, srcGray, openCV.ColorConversionCodes.Bgr2gray, 0)
+		    
+		    Var gradX As New openCV.CVCMat
+		    Var gradY As New openCV.CVCMat
+		    Var absGradX As New openCV.CVCMat
+		    Var absGradY As New openCV.CVCMat
+		    
+		    openCV.imgProc.CVCSobel(srcGray, gradX, CType(depth, Integer), 1, 0, ksize, scale, delta, openCV.BorderTypes.Default)
+		    
+		    openCV.imgProc.CVCSobel(srcGray, gradY, CType(depth, Integer), 1, 0, ksize, scale, delta, openCV.BorderTypes.Default)
+		    
+		    openCV.Core.convertScaleAbs(gradX, absGradX, 2, 2)
+		    
+		    openCV.Core.convertScaleAbs(gradY, absGradY, 2, 2)
+		    
+		    Var grad As New openCV.CVCMat
+		    openCV.Core.addWeighted(absGradX, .5, absGradY, .5, .5, grad, 0)
+		    currentImage=grad.image
+		  End If
+		  n=Runtime.ObjectCount-n
+		  mn=Runtime.MemoryUsed-mn
+		  System.DebugLog mn.ToString+" ("+n.ToString+")"
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events sobelParam
+	#tag Event
+		Sub ValueChanged(index as Integer)
+		  tSobleParam(index).Text=me.Value.ToString
 		End Sub
 	#tag EndEvent
 #tag EndEvents

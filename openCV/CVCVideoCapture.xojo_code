@@ -2,7 +2,7 @@
 Protected Class CVCVideoCapture
 	#tag Method, Flags = &h21
 		Private Sub Constructor(h as Ptr)
-		  handle=h
+		  mHandle=h
 		End Sub
 	#tag EndMethod
 
@@ -33,27 +33,27 @@ Protected Class CVCVideoCapture
 
 	#tag Method, Flags = &h0
 		Sub Destructor()
-		  CVCVideoCaptureFree(handle)
-		  handle=Nil
+		  CVCVideoCaptureFree(mHandle)
+		  mHandle=Nil
 		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function isOpened() As Boolean
-		  Return CVCVideoCaptureIsOpened(handle)
+		  Return CVCVideoCaptureIsOpened(mHandle)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function read(mat as CVCMat) As Boolean
-		  Return CVCVideoCaptureRead(handle, mat.handle)
+		  Return CVCVideoCaptureRead(mHandle, mat.handle)
 		End Function
 	#tag EndMethod
 
 
 	#tag Property, Flags = &h0
-		handle As Ptr
+		mHandle As Ptr
 	#tag EndProperty
 
 

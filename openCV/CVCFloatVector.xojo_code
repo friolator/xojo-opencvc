@@ -2,20 +2,20 @@
 Protected Class CVCFloatVector
 	#tag Method, Flags = &h0
 		Sub Add(value as Single)
-		  CVCFloatVectorPushBack(handle, value)
+		  CVCFloatVectorPushBack(mHandle, value)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub Constructor()
-		  handle=CVCFloatVectorCreate
+		  mHandle=CVCFloatVectorCreate
 		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function Count() As UInteger
-		  Return CVCFloatVectorSize(handle)
+		  Return CVCFloatVectorSize(mHandle)
 		End Function
 	#tag EndMethod
 
@@ -45,7 +45,7 @@ Protected Class CVCFloatVector
 
 	#tag Method, Flags = &h0
 		Function Data() As MemoryBlock
-		  Var p As Ptr=CVCFloatVectorData(handle)
+		  Var p As Ptr=CVCFloatVectorData(mHandle)
 		  If p<>Nil Then
 		    Var m As MemoryBlock=p
 		    Var mr As MemoryBlock=m.StringValue(0, Count*4)
@@ -56,13 +56,13 @@ Protected Class CVCFloatVector
 
 	#tag Method, Flags = &h0
 		Sub Destructor()
-		  CVCFloatVectorFree(handle)
+		  CVCFloatVectorFree(mHandle)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function Handle() As Ptr
-		  Return handle
+		  Return mHandle
 		End Function
 	#tag EndMethod
 
@@ -71,13 +71,13 @@ Protected Class CVCFloatVector
 		  If index>=Count Then 
 		    Raise New OutOfBoundsException
 		  End If
-		  Return CVCFloatVectorAt(handle, index)
+		  Return CVCFloatVectorAt(mHandle, index)
 		End Function
 	#tag EndMethod
 
 
 	#tag Property, Flags = &h21
-		Private handle As Ptr
+		Private mHandle As Ptr
 	#tag EndProperty
 
 

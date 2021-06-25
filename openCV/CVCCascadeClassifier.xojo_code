@@ -2,7 +2,7 @@
 Protected Class CVCCascadeClassifier
 	#tag Method, Flags = &h0
 		Sub Constructor()
-		  handle=CVCCascadeClassifierCreate
+		  mHandle=CVCCascadeClassifierCreate
 		  
 		End Sub
 	#tag EndMethod
@@ -25,28 +25,34 @@ Protected Class CVCCascadeClassifier
 
 	#tag Method, Flags = &h0
 		Sub Destructor()
-		  CVCCascadeClassifierFree(handle)
-		  handle=Nil
+		  CVCCascadeClassifierFree(mHandle)
+		  mHandle=Nil
 		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub DetectMultiScale(image as CVCMat, rects as CVCRectVector, scaleFactor as Double, minNeighbors as integer, flags as integer, minSize as CVCSize, maxSize as CVCSize)
-		  CVCCascadeClassifierDetectMultiScale(handle, image.handle, rects.handle, scaleFactor, minNeighbors, flags, minSize.handle, maxSize.handle)
+		  CVCCascadeClassifierDetectMultiScale(mHandle, image.Handle, rects.Handle, scaleFactor, minNeighbors, flags, minSize.Handle, maxSize.Handle)
 		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function Handle() As Ptr
+		  return mHandle
+		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function Load(f as FolderItem) As Boolean
 		  If f=Nil Or Not f.Exists Or f.IsFolder Or Not f.IsReadable Then Return False
-		  Return CVCCascadeClassifierLoad(handle, f.NativePath)
+		  Return CVCCascadeClassifierLoad(mHandle, f.NativePath)
 		End Function
 	#tag EndMethod
 
 
-	#tag Property, Flags = &h0
-		handle As Ptr
+	#tag Property, Flags = &h21
+		Private mHandle As Ptr
 	#tag EndProperty
 
 
