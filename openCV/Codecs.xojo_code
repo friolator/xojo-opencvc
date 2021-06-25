@@ -1,6 +1,14 @@
 #tag Module
 Protected Module Codecs
 	#tag ExternalMethod, Flags = &h21
+		Private Declare Function CVChaveImageReader Lib LibOpenCVC (fileName as CString) As boolean
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Private Declare Function CVChaveImageWriter Lib LibOpenCVC (fileName as CString) As boolean
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h21
 		Private Declare Function CVCimdecode Lib LibOpenCVC (buf as Ptr, flags as imReadModes) As Ptr
 	#tag EndExternalMethod
 
@@ -15,6 +23,18 @@ Protected Module Codecs
 	#tag ExternalMethod, Flags = &h21
 		Private Declare Function CVCimwrite Lib LibOpenCVC (fileName as CString, img as Ptr, params as Integer, pcount as integer) As Boolean
 	#tag EndExternalMethod
+
+	#tag Method, Flags = &h1
+		Protected Function haveImageReader(filename as CString) As boolean
+		  return CVChaveImageReader(filename)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Function haveImageWriter(filename as CString) As boolean
+		  return CVChaveImageWriter(filename)
+		End Function
+	#tag EndMethod
 
 	#tag Method, Flags = &h1
 		Protected Function imdecode(m as MemoryBlock, flags as openCV.imReadModes) As CVCMat
