@@ -25,23 +25,20 @@ Protected Module Codecs
 	#tag EndExternalMethod
 
 	#tag Method, Flags = &h1
-		Protected Function haveImageReader(filename as CString) As boolean
+		Protected Function haveImageReader(filename as String) As Boolean
 		  return CVChaveImageReader(filename)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Function haveImageWriter(filename as CString) As boolean
+		Protected Function haveImageWriter(filename as String) As Boolean
 		  return CVChaveImageWriter(filename)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Function imdecode(m as MemoryBlock, flags as openCV.imReadModes) As CVCMat
-		  Var t As Double=System.Microseconds
+		Protected Function imDecode(m as MemoryBlock, flags as openCV.imReadModes) As CVCMat
 		  Var c As New CVCUCharVector(m)
-		  t=System.Microseconds-t
-		  System.DebugLog "MM"+t.ToString
 		  Var p As Ptr=CVCimdecode(c.handle, flags)
 		  If p<>Nil Then
 		    Return new CVCMat(p)
@@ -64,8 +61,7 @@ Protected Module Codecs
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Function imread(path as String, flags as openCV.imReadModes) As openCV.CVCMat
-		  //Var flag16 As Int16=CType(flags, Int16)
+		Protected Function imRead(path as String, flags as openCV.imReadModes) As openCV.CVCMat
 		  Var p As Ptr=CVCimread(path, flags)
 		  If p<>Nil Then 
 		    Return New openCV.CVCMat(p)
@@ -74,8 +70,7 @@ Protected Module Codecs
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Function imwrite(path as String, mat as openCV.CVCMat) As Boolean
-		  
+		Protected Function imWrite(path as String, mat as openCV.CVCMat) As Boolean
 		  Return CVCimwrite(path, mat.handle, 0, 0)
 		End Function
 	#tag EndMethod

@@ -1,19 +1,21 @@
 #tag Module
 Protected Module Core
 	#tag Method, Flags = &h1
-		Protected Sub absdiff(src1 as CVCMat, src2 as CVCMat, dst as CVCMat)
+		Protected Sub AbsDiff(src1 as CVCMat, src2 as CVCMat, dst as CVCMat)
 		  CVCabsdiff(src1.handle, src2.handle, dst.handle)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Sub add(src1 as CVCMat, src2 as CVCMat, dst as CVCMat, mask as CVCMat, dtype as integer)
-		  CVCadd(src1.handle, src2.handle, dst.handle, mask.handle, dtype)
+		Protected Sub Add(src1 as CVCMat, src2 as CVCMat, dst as CVCMat, mask as CVCMat = nil, dtype as integer = -1)
+		  Var maskPtr As ptr
+		  If mask<>Nil Then maskPtr=mask.Handle
+		  CVCadd(src1.handle, src2.handle, dst.handle, maskPtr, dtype)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Sub addWeighted(src1 as CVCMat, alpha as double, src2 as CVCMat, beta as double, gamma as double, dst as CVCMat, dtype as integer)
+		Protected Sub AddWeighted(src1 as CVCMat, alpha as double, src2 as CVCMat, beta as double, gamma as double, dst as CVCMat, dtype as integer = -1)
 		  CVCaddWeighted(src1.handle, alpha, src2.handle, beta, gamma, dst.handle, dtype)
 		End Sub
 	#tag EndMethod
@@ -25,26 +27,34 @@ Protected Module Core
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Sub bitwise_and(src1 as CVCMat, src2 as CVCMat, dst as CVCMat, mask as CVCMat)
-		  CVCbitwise_and(src1.handle, src2.handle, dst.handle, mask.handle)
+		Protected Sub BitwiseAnd(src1 as CVCMat, src2 as CVCMat, dst as CVCMat, mask as CVCMat = nil)
+		  Var maskPtr As Ptr
+		  If mask<>Nil Then maskPtr=mask.Handle
+		  CVCbitwise_and(src1.handle, src2.handle, dst.handle, maskPtr)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Sub bitwise_not(src as CVCMat, dst as CVCMat, mask as CVCMat)
-		  CVCbitwise_not(src.handle, dst.handle, mask.handle)
+		Protected Sub BitwiseNot(src as CVCMat, dst as CVCMat, mask as CVCMat = nil)
+		  Var maskPtr As Ptr
+		  If mask<>Nil Then maskPtr=mask.Handle
+		  CVCbitwise_not(src.handle, dst.handle, maskPtr)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Sub bitwise_or(src1 as CVCMat, src2 as CVCMat, dst as CVCMat, mask as CVCMat)
-		  CVCbitwise_or(src1.handle, src2.handle, dst.handle, mask.handle)
+		Protected Sub BitwiseOr(src1 as CVCMat, src2 as CVCMat, dst as CVCMat, mask as CVCMat = nil)
+		  Var maskPtr As Ptr
+		  If mask<>Nil Then maskPtr=mask.Handle
+		  CVCbitwise_or(src1.handle, src2.handle, dst.handle, maskPtr)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Sub bitwise_xor(src1 as CVCMat, src2 as CVCMat, dst as CVCMat, mask as CVCMat)
-		  CVCbitwise_xor(src1.handle, src2.handle, dst.handle, mask.handle)
+		Protected Sub BitwiseXor(src1 as CVCMat, src2 as CVCMat, dst as CVCMat, mask as CVCMat = nil)
+		  Var maskPtr As Ptr
+		  If mask<>Nil Then maskPtr=mask.Handle
+		  CVCbitwise_xor(src1.handle, src2.handle, dst.handle, maskPtr)
 		End Sub
 	#tag EndMethod
 
@@ -628,7 +638,7 @@ Protected Module Core
 
 	#tag Method, Flags = &h1
 		Protected Sub setRNGSeed(seed as integer)
-		   CVCsetRNGSeed(seed)
+		  CVCsetRNGSeed(seed)
 		End Sub
 	#tag EndMethod
 
