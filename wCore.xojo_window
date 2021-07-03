@@ -10,7 +10,7 @@ Begin Window wCore
    HasFullScreenButton=   False
    HasMaximizeButton=   True
    HasMinimizeButton=   True
-   Height          =   400
+   Height          =   432
    ImplicitInstance=   True
    MacProcID       =   0
    MaximumHeight   =   32000
@@ -24,127 +24,32 @@ Begin Window wCore
    Type            =   0
    Visible         =   True
    Width           =   600
-   Begin PushButton bAbsDiff
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Cancel          =   False
-      Caption         =   "absDiff"
-      Default         =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   20
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Italic          =   False
-      Left            =   20
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      MacButtonStyle  =   0
-      Scope           =   2
-      TabIndex        =   0
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Tooltip         =   ""
-      Top             =   20
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   80
-   End
    Begin Canvas Canvas1
       AllowAutoDeactivate=   True
       AllowFocus      =   False
       AllowFocusRing  =   True
       AllowTabs       =   False
       Backdrop        =   0
+      DoubleBuffer    =   False
       Enabled         =   True
-      Height          =   360
+      Height          =   328
       Index           =   -2147483648
       InitialParent   =   ""
-      Left            =   127
-      LockBottom      =   False
+      Left            =   20
+      LockBottom      =   True
       LockedInPosition=   False
       LockLeft        =   True
-      LockRight       =   False
+      LockRight       =   True
       LockTop         =   True
       Scope           =   2
       TabIndex        =   1
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
-      Top             =   20
+      Top             =   52
       Transparent     =   True
       Visible         =   True
-      Width           =   453
-   End
-   Begin PushButton bAdd
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Cancel          =   False
-      Caption         =   "Add"
-      Default         =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   20
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Italic          =   False
-      Left            =   20
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      MacButtonStyle  =   0
-      Scope           =   2
-      TabIndex        =   2
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Tooltip         =   ""
-      Top             =   52
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   80
-   End
-   Begin PushButton bAddW
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Cancel          =   False
-      Caption         =   "AddW"
-      Default         =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   20
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Italic          =   False
-      Left            =   20
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      MacButtonStyle  =   0
-      Scope           =   2
-      TabIndex        =   3
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Tooltip         =   ""
-      Top             =   84
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   80
+      Width           =   560
    End
    Begin Slider Slider1
       AllowAutoDeactivate=   True
@@ -153,7 +58,7 @@ Begin Window wCore
       Height          =   23
       Index           =   -2147483648
       InitialParent   =   ""
-      Left            =   15
+      Left            =   288
       LineStep        =   1
       LockBottom      =   False
       LockedInPosition=   False
@@ -169,17 +74,17 @@ Begin Window wCore
       TabStop         =   True
       TickMarkStyle   =   0
       Tooltip         =   ""
-      Top             =   116
+      Top             =   17
       Transparent     =   False
       Value           =   0
       Visible         =   True
       Width           =   100
    End
-   Begin PushButton bbitAnd
+   Begin PushButton bSplit
       AllowAutoDeactivate=   True
       Bold            =   False
       Cancel          =   False
-      Caption         =   "bAnd"
+      Caption         =   "bSplit"
       Default         =   False
       Enabled         =   True
       FontName        =   "System"
@@ -190,28 +95,28 @@ Begin Window wCore
       InitialParent   =   ""
       Italic          =   False
       Left            =   20
-      LockBottom      =   False
+      LockBottom      =   True
       LockedInPosition=   False
       LockLeft        =   True
       LockRight       =   False
-      LockTop         =   True
+      LockTop         =   False
       MacButtonStyle  =   0
       Scope           =   2
-      TabIndex        =   5
+      TabIndex        =   10
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
-      Top             =   142
+      Top             =   392
       Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   80
    End
-   Begin PushButton bbitNot
+   Begin PushButton bCallAction
       AllowAutoDeactivate=   True
       Bold            =   False
       Cancel          =   False
-      Caption         =   "bNot"
+      Caption         =   "DoIt"
       Default         =   False
       Enabled         =   True
       FontName        =   "System"
@@ -221,7 +126,7 @@ Begin Window wCore
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   20
+      Left            =   500
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -229,22 +134,21 @@ Begin Window wCore
       LockTop         =   True
       MacButtonStyle  =   0
       Scope           =   2
-      TabIndex        =   6
+      TabIndex        =   12
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
-      Top             =   174
+      Top             =   17
       Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   80
    End
-   Begin PushButton bbitOr
+   Begin PopupMenu FunctionToCall
       AllowAutoDeactivate=   True
       Bold            =   False
-      Cancel          =   False
-      Caption         =   "bOr"
-      Default         =   False
+      DataField       =   ""
+      DataSource      =   ""
       Enabled         =   True
       FontName        =   "System"
       FontSize        =   0.0
@@ -252,6 +156,7 @@ Begin Window wCore
       Height          =   20
       Index           =   -2147483648
       InitialParent   =   ""
+      InitialValue    =   "AbsDiff\nAdd\nAddWeighted\nBitwiseAnd\nBitwiseNot\nBitwiseOr\nBitwiseXor\nSwap\nDivide"
       Italic          =   False
       Left            =   20
       LockBottom      =   False
@@ -259,49 +164,17 @@ Begin Window wCore
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
-      MacButtonStyle  =   0
       Scope           =   2
-      TabIndex        =   7
+      SelectedRowIndex=   0
+      TabIndex        =   13
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
-      Top             =   202
+      Top             =   18
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   80
-   End
-   Begin PushButton bbitXor
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Cancel          =   False
-      Caption         =   "bXor"
-      Default         =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   20
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Italic          =   False
-      Left            =   20
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      MacButtonStyle  =   0
-      Scope           =   2
-      TabIndex        =   8
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Tooltip         =   ""
-      Top             =   234
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   80
+      Width           =   256
    End
 End
 #tag EndWindow
@@ -372,6 +245,149 @@ End
 		End Function
 	#tag EndMethod
 
+	#tag Method, Flags = &h21
+		Private Sub testAbsDiff()
+		  Var pLogo As FolderItem=loadFromCore("logo")
+		  Var pTest As FolderItem=loadFromCore("Test")
+		  If pLogo<>Nil And pTest<>Nil Then
+		    images.RemoveAll
+		    images.Add openCV.Codecs.imread(pLogo.NativePath, openCV.ImReadModes.Unchanged) 
+		    images.Add openCV.Codecs.imRead(pTest.NativePath, openCV.ImReadModes.Unchanged)
+		    images.add New openCV.CVCMat
+		    
+		    openCV.Core.AbsDiff(images(0), images(1), images(2))
+		    Canvas1.Invalidate
+		  End If
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub testAdd()
+		  Var pLogo As FolderItem=loadFromCore("logo")
+		  Var pTest As FolderItem=loadFromCore("Test")
+		  If pLogo<>Nil And pTest<>Nil Then
+		    images.RemoveAll
+		    images.Add openCV.Codecs.imread(pLogo.NativePath, openCV.ImReadModes.Unchanged) 
+		    images.Add openCV.Codecs.imRead(pTest.NativePath, openCV.ImReadModes.Unchanged)
+		    images.add New openCV.CVCMat
+		    
+		    openCV.Core.Add(images(0), images(1), images(2))
+		    Canvas1.Invalidate
+		  End If
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub testAddWeighted()
+		  Var pLogo As FolderItem=loadFromCore("logo")
+		  Var pTest As FolderItem=loadFromCore("Test")
+		  If pLogo<>Nil And pTest<>Nil Then
+		    images.RemoveAll
+		    images.Add openCV.Codecs.imread(pLogo.NativePath, openCV.ImReadModes.Unchanged) 
+		    images.Add openCV.Codecs.imRead(pTest.NativePath, openCV.ImReadModes.Unchanged)
+		    images.add New openCV.CVCMat
+		    Var alpha As Double=Slider1.Value/Slider1.MaximumValue
+		    Var beta As Double=1-alpha
+		    openCV.Core.AddWeighted(images(0), alpha, images(1), beta, 0.0, images(2))
+		    Canvas1.Invalidate
+		  End If
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub testBitwiseAnd()
+		  Var pLogo As FolderItem=loadFromCore("logo")
+		  Var pTest As FolderItem=loadFromCore("Test")
+		  If pLogo<>Nil And pTest<>Nil Then
+		    images.RemoveAll
+		    images.Add openCV.Codecs.imread(pLogo.NativePath, openCV.ImReadModes.Unchanged) 
+		    images.Add openCV.Codecs.imRead(pTest.NativePath, openCV.ImReadModes.Unchanged)
+		    images.add New openCV.CVCMat
+		    
+		    openCV.Core.BitwiseAnd(images(0), images(1), images(2))
+		    Canvas1.Invalidate
+		  End If
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub testBitwiseNot()
+		  Var pLogo As FolderItem=loadFromCore("logo")
+		  Var pTest As FolderItem=loadFromCore("Test")
+		  If pLogo<>Nil And pTest<>Nil Then
+		    images.RemoveAll
+		    images.Add openCV.Codecs.imread(pLogo.NativePath, openCV.ImReadModes.Unchanged)
+		    images.add New openCV.CVCMat
+		    
+		    openCV.Core.BitwiseNot(images(0), images(1))
+		    Canvas1.Invalidate
+		  End If
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub testBitwiseOr()
+		  Var pLogo As FolderItem=loadFromCore("logo")
+		  Var pTest As FolderItem=loadFromCore("Test")
+		  If pLogo<>Nil And pTest<>Nil Then
+		    images.RemoveAll
+		    images.Add openCV.Codecs.imread(pLogo.NativePath, openCV.ImReadModes.Unchanged) 
+		    images.Add openCV.Codecs.imRead(pTest.NativePath, openCV.ImReadModes.Unchanged)
+		    images.add New openCV.CVCMat
+		    
+		    openCV.Core.BitwiseOr(images(0), images(1), images(2))
+		    Canvas1.Invalidate
+		  End If
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub testBitwiseXor()
+		  Var pLogo As FolderItem=loadFromCore("logo")
+		  Var pTest As FolderItem=loadFromCore("Test")
+		  If pLogo<>Nil And pTest<>Nil Then
+		    images.RemoveAll
+		    images.Add openCV.Codecs.imread(pLogo.NativePath, openCV.ImReadModes.Unchanged) 
+		    images.Add openCV.Codecs.imRead(pTest.NativePath, openCV.ImReadModes.Unchanged)
+		    images.add New openCV.CVCMat
+		    
+		    openCV.Core.BitwiseXor(images(0), images(1), images(2))
+		    Canvas1.Invalidate
+		  End If
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub testDivide()
+		  Var pLogo As FolderItem=loadFromCore("logo")
+		  Var pTest As FolderItem=loadFromCore("Test")
+		  If pLogo<>Nil And pTest<>Nil Then
+		    images.RemoveAll
+		    images.Add openCV.Codecs.imread(pLogo.NativePath, openCV.ImReadModes.Unchanged) 
+		    images.Add openCV.Codecs.imread(pTest.NativePath, openCV.ImReadModes.Unchanged) 
+		    images.add New openCV.CVCMat
+		    openCV.Core.Divide(images(0), images(1), images(2))
+		    
+		    Canvas1.Invalidate
+		  End If
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub testSwap()
+		  Var pLogo As FolderItem=loadFromCore("logo")
+		  Var pTest As FolderItem=loadFromCore("Test")
+		  If pLogo<>Nil And pTest<>Nil Then
+		    images.RemoveAll
+		    images.Add openCV.Codecs.imread(pLogo.NativePath, openCV.ImReadModes.Unchanged) 
+		    images.Add openCV.Codecs.imRead(pTest.NativePath, openCV.ImReadModes.Unchanged)
+		    
+		    openCV.Core.Swap(images(0), images(1))
+		    Canvas1.Invalidate
+		  End If
+		End Sub
+	#tag EndMethod
+
 
 	#tag Property, Flags = &h21
 		Private coreResources As Dictionary
@@ -388,23 +404,6 @@ End
 
 #tag EndWindowCode
 
-#tag Events bAbsDiff
-	#tag Event
-		Sub Action()
-		  Var pLogo As FolderItem=loadFromCore("logo")
-		  Var pTest As FolderItem=loadFromCore("Test")
-		  If pLogo<>Nil And pTest<>Nil Then
-		    images.RemoveAll
-		    images.Add openCV.Codecs.imread(pLogo.NativePath, openCV.ImReadModes.Unchanged) 
-		    images.Add openCV.Codecs.imRead(pTest.NativePath, openCV.ImReadModes.Unchanged)
-		    images.add New openCV.CVCMat
-		    
-		    openCV.Core.AbsDiff(images(0), images(1), images(2))
-		    Canvas1.Invalidate
-		  End If
-		End Sub
-	#tag EndEvent
-#tag EndEvents
 #tag Events Canvas1
 	#tag Event
 		Sub Paint(g As Graphics, areas() As REALbasic.Rect)
@@ -430,7 +429,7 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events bAdd
+#tag Events bSplit
 	#tag Event
 		Sub Action()
 		  Var pLogo As FolderItem=loadFromCore("logo")
@@ -438,97 +437,56 @@ End
 		  If pLogo<>Nil And pTest<>Nil Then
 		    images.RemoveAll
 		    images.Add openCV.Codecs.imread(pLogo.NativePath, openCV.ImReadModes.Unchanged) 
-		    images.Add openCV.Codecs.imRead(pTest.NativePath, openCV.ImReadModes.Unchanged)
-		    images.add New openCV.CVCMat
+		    'images.Add new openCV.CVCMat
+		    'Var matV As New openCV.CVCMatVector
+		    'matV.Add New openCV.CVCMat
+		    'matV.Add New openCV.CVCMat
+		    'matV.Add New openCV.CVCMat
+		    'matV.Add New openCV.CVCMat
 		    
-		    openCV.Core.add(images(0), images(1), images(2))
+		    
+		    'openCV.Core.Split(images(0), matV)
+		    Var matv2 As New openCV.CVCMatVector
+		    matv2.add openCV.Codecs.imread(pLogo.NativePath, openCV.ImReadModes.Unchanged) 
+		    matv2.Add openCV.Codecs.imread(pTest.NativePath, openCV.ImReadModes.Unchanged) 
+		    Var n As Integer=matv2.Count-1
+		    Var p() As Picture
+		    For i As Integer=0 To n
+		      Var m As openCV.CVCMat=matv2.RowAt(i)
+		      Var w As Integer=m.Width
+		      Var h As Integer=m.Height
+		      //var b as Boolean=m.
+		      p.Add m.image1
+		      //images.add matv.RowAt(i)
+		    Next
 		    Canvas1.Invalidate
 		  End If
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events bAddW
+#tag Events bCallAction
 	#tag Event
 		Sub Action()
-		  Var pLogo As FolderItem=loadFromCore("logo")
-		  Var pTest As FolderItem=loadFromCore("Test")
-		  If pLogo<>Nil And pTest<>Nil Then
-		    images.RemoveAll
-		    images.Add openCV.Codecs.imread(pLogo.NativePath, openCV.ImReadModes.Unchanged) 
-		    images.Add openCV.Codecs.imRead(pTest.NativePath, openCV.ImReadModes.Unchanged)
-		    images.add New openCV.CVCMat
-		    Var alpha As Double=Slider1.Value/Slider1.MaximumValue
-		    Var beta As Double=1-alpha
-		    openCV.Core.addWeighted(images(0), alpha, images(1), beta, 0.0, images(2))
-		    Canvas1.Invalidate
-		  End If
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events bbitAnd
-	#tag Event
-		Sub Action()
-		  Var pLogo As FolderItem=loadFromCore("logo")
-		  Var pTest As FolderItem=loadFromCore("Test")
-		  If pLogo<>Nil And pTest<>Nil Then
-		    images.RemoveAll
-		    images.Add openCV.Codecs.imread(pLogo.NativePath, openCV.ImReadModes.Unchanged) 
-		    images.Add openCV.Codecs.imRead(pTest.NativePath, openCV.ImReadModes.Unchanged)
-		    images.add New openCV.CVCMat
-		    
-		    openCV.Core.BitwiseAnd(images(0), images(1), images(2))
-		    Canvas1.Invalidate
-		  End If
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events bbitNot
-	#tag Event
-		Sub Action()
-		  Var pLogo As FolderItem=loadFromCore("logo")
-		  Var pTest As FolderItem=loadFromCore("Test")
-		  If pLogo<>Nil And pTest<>Nil Then
-		    images.RemoveAll
-		    images.Add openCV.Codecs.imread(pLogo.NativePath, openCV.ImReadModes.Unchanged)
-		    images.add New openCV.CVCMat
-		    
-		    openCV.Core.BitwiseNot(images(0), images(1))
-		    Canvas1.Invalidate
-		  End If
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events bbitOr
-	#tag Event
-		Sub Action()
-		  Var pLogo As FolderItem=loadFromCore("logo")
-		  Var pTest As FolderItem=loadFromCore("Test")
-		  If pLogo<>Nil And pTest<>Nil Then
-		    images.RemoveAll
-		    images.Add openCV.Codecs.imread(pLogo.NativePath, openCV.ImReadModes.Unchanged) 
-		    images.Add openCV.Codecs.imRead(pTest.NativePath, openCV.ImReadModes.Unchanged)
-		    images.add New openCV.CVCMat
-		    
-		    openCV.Core.BitwiseOr(images(0), images(1), images(2))
-		    Canvas1.Invalidate
-		  End If
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events bbitXor
-	#tag Event
-		Sub Action()
-		  Var pLogo As FolderItem=loadFromCore("logo")
-		  Var pTest As FolderItem=loadFromCore("Test")
-		  If pLogo<>Nil And pTest<>Nil Then
-		    images.RemoveAll
-		    images.Add openCV.Codecs.imread(pLogo.NativePath, openCV.ImReadModes.Unchanged) 
-		    images.Add openCV.Codecs.imRead(pTest.NativePath, openCV.ImReadModes.Unchanged)
-		    images.add New openCV.CVCMat
-		    
-		    openCV.Core.BitwiseXor(images(0), images(1), images(2))
-		    Canvas1.Invalidate
-		  End If
+		  Select Case functionToCall.SelectedRow
+		  Case "AbsDiff"
+		    testAbsDiff
+		  Case "Add"
+		    testAdd
+		  Case "AddWeighted"
+		    testAddWeighted
+		  Case "BitwiseAnd"
+		    testBitwiseAnd
+		  Case "BitwiseNot"
+		    testBitwiseNot
+		  Case "BitwiseOr"
+		    testBitwiseOr
+		  Case "BitwiseXor"
+		    testBitwiseXor
+		  Case "Swap"
+		    testSwap
+		  Case "Divide"
+		    testDivide
+		  End Select
 		End Sub
 	#tag EndEvent
 #tag EndEvents

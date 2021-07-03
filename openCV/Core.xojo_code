@@ -95,8 +95,10 @@ Protected Module Core
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Sub copyTo(src as CVCMat, dst as CVCMat, mask as CVCMat)
-		  CVCcopyTo(src.handle, dst.handle, mask.handle)
+		Protected Sub copyTo(src as CVCMat, dst as CVCMat, mask as CVCMat = nil)
+		  Var maskPtr As Ptr
+		  If mask<>Nil Then maskPtr=mask.Handle
+		  CVCcopyTo(src.Handle, dst.Handle, maskPtr)
 		End Sub
 	#tag EndMethod
 
@@ -409,7 +411,7 @@ Protected Module Core
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Sub divide(src1 as CVCMat, src2 as CVCMat, dst as CVCMat, scale as double, dtype as integer)
+		Protected Sub Divide(src1 as CVCMat, src2 as CVCMat, dst as CVCMat, scale as double = 1.0, dtype as integer = -1)
 		  CVCdivide(src1.handle, src2.handle, dst.handle, scale, dtype)
 		End Sub
 	#tag EndMethod
@@ -673,7 +675,7 @@ Protected Module Core
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Sub split(src as CVCMat, mvbegin as CVCMat)
+		Protected Sub split(src as CVCMat, mvbegin as CVCMatVector)
 		  CVCsplit(src.handle, mvbegin.handle)
 		End Sub
 	#tag EndMethod
@@ -703,7 +705,7 @@ Protected Module Core
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Sub swap(a as CVCMat, b as CVCMat)
+		Protected Sub Swap(a as CVCMat, b as CVCMat)
 		  CVCswap(a.handle, b.handle)
 		End Sub
 	#tag EndMethod

@@ -24,6 +24,7 @@ Class=CVCFloatVector;openCV/CVCFloatVector.xojo_code;&h000000005174AFFF;&h000000
 Class=CVCUCharVector;openCV/CVCUCharVector.xojo_code;&h000000000AE9AFFF;&h0000000000B4A7FF;false
 Class=CVCRect;openCV/CVCRect.xojo_code;&h000000003D3307FF;&h0000000000B4A7FF;false
 Window=wCore;wCore.xojo_window;&h0000000069464FFF;&h0000000000000000;false
+Class=CVCMatVector;openCV/CVCMatVector.xojo_code;&h000000007B9A6FFF;&h0000000000B4A7FF;false
 DefaultWindow=Window1
 AppMenuBar=MainMenuBar
 MajorVersion=1
