@@ -435,8 +435,8 @@ Protected Module Core
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Sub extractChannel(src as CVCMat, dst as CVCMat, coi as integer)
-		  CVCextractChannel(src.handle, dst.handle, coi)
+		Protected Sub ExtractChannel(src as CVCMat, dst as CVCMat, channelOfInterest as integer)
+		  CVCextractChannel(src.handle, dst.handle, channelOfInterest)
 		End Sub
 	#tag EndMethod
 
@@ -447,8 +447,8 @@ Protected Module Core
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Sub flip(src as CVCMat, dest as CVCMat, flipCode as int32)
-		  CVCflip(src.handle, dest.handle, flipCode)
+		Protected Sub Flip(src as CVCMat, dest as CVCMat, flipCode as flipTypes)
+		  CVCflip(src.handle, dest.handle, CType(flipCode, Int32))
 		End Sub
 	#tag EndMethod
 
@@ -621,14 +621,19 @@ Protected Module Core
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Sub repeat(src as CVCMat, ny as Integer, nx as integer, dst as CVCMat)
-		  CVCrepeat(src.handle, ny, nx, dst.handle)
+		Protected Sub Repeat(src as CVCMat, verticalRepeat as Integer, horizontalRepeat as integer, dst as CVCMat)
+		  If verticalRepeat<=0 Or horizontalRepeat<=0 Then
+		    Var e As New InvalidArgumentException
+		    e.Message="verticalRepeat or horizontalRepeat mut be greater than zero"
+		    Raise e
+		  End If
+		  CVCrepeat(src.handle, verticalRepeat, horizontalRepeat, dst.handle)
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h1
-		Protected Sub rotate(src as CVCMat, dst as CVCMat, rotateCode as Integer)
-		  CVCrotate(src.handle, dst.handle, rotateCode)
+		Protected Sub Rotate(src as CVCMat, dst as CVCMat, rotateCode as rotateFlags)
+		  CVCrotate(src.handle, dst.handle, ctype(rotateCode, integer))
 		End Sub
 	#tag EndMethod
 

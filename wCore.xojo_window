@@ -156,7 +156,7 @@ Begin Window wCore
       Height          =   20
       Index           =   -2147483648
       InitialParent   =   ""
-      InitialValue    =   "AbsDiff\nAdd\nAddWeighted\nBitwiseAnd\nBitwiseNot\nBitwiseOr\nBitwiseXor\nSwap\nDivide"
+      InitialValue    =   "AbsDiff\nAdd\nAddWeighted\nBitwiseAnd\nBitwiseNot\nBitwiseOr\nBitwiseXor\nSwap\nDivide\nExtractChannel\nFlip\nRepeat\nRotate"
       Italic          =   False
       Left            =   20
       LockBottom      =   False
@@ -374,6 +374,78 @@ End
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
+		Private Sub testExtractChannel()
+		  Var pLogo As FolderItem=loadFromCore("logo")
+		  Var pTest As FolderItem=loadFromCore("Test")
+		  If pLogo<>Nil And pTest<>Nil Then
+		    images.RemoveAll
+		    images.Add openCV.Codecs.imread(pLogo.NativePath, openCV.ImReadModes.Unchanged) 
+		    images.Add New openCV.CVCMat
+		    images.Add New openCV.CVCMat
+		    images.Add New openCV.CVCMat
+		    
+		    openCV.Core.ExtractChannel(images(0), images(1), 0)
+		    openCV.Core.ExtractChannel(images(0), images(2), 1)
+		    openCV.Core.ExtractChannel(images(0), images(3), 2)
+		    Canvas1.Invalidate
+		  End If
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub testFlip()
+		  Var pLogo As FolderItem=loadFromCore("logo")
+		  Var pTest As FolderItem=loadFromCore("Test")
+		  If pLogo<>Nil And pTest<>Nil Then
+		    images.RemoveAll
+		    images.Add openCV.Codecs.imread(pLogo.NativePath, openCV.ImReadModes.Unchanged) 
+		    images.add New openCV.CVCMat
+		    images.add New openCV.CVCMat
+		    images.add New openCV.CVCMat
+		    
+		    openCV.Core.Flip(images(0), images(1), openCV.flipTypes.BothAxes)
+		    openCV.Core.Flip(images(0), images(2), openCV.flipTypes.xAxis)
+		    openCV.Core.Flip(images(0), images(3), openCV.flipTypes.yAxis)
+		    Canvas1.Invalidate
+		  End If
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub testRepeat()
+		  Var pLogo As FolderItem=loadFromCore("logo")
+		  Var pTest As FolderItem=loadFromCore("Test")
+		  If pLogo<>Nil And pTest<>Nil Then
+		    images.RemoveAll
+		    images.Add openCV.Codecs.imread(pLogo.NativePath, openCV.ImReadModes.Unchanged) 
+		    images.add New openCV.CVCMat
+		    
+		    openCV.Core.Repeat(images(0), 3, 1, images(1))
+		    Canvas1.Invalidate
+		  End If
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Sub testRotate()
+		  Var pLogo As FolderItem=loadFromCore("logo")
+		  Var pTest As FolderItem=loadFromCore("Test")
+		  If pLogo<>Nil And pTest<>Nil Then
+		    images.RemoveAll
+		    images.Add openCV.Codecs.imread(pLogo.NativePath, openCV.ImReadModes.Unchanged)
+		    images.add New openCV.CVCMat
+		    images.add New openCV.CVCMat
+		    images.add New openCV.CVCMat
+		    
+		    openCV.Core.Rotate(images(0), images(1), openCV.RotateFlags.Rotate90Clockwise)
+		    openCV.Core.Rotate(images(0), images(2), openCV.RotateFlags.Rotate180)
+		    openCV.Core.Rotate(images(0), images(3), openCV.RotateFlags.Rotate90CounterClockwise)
+		    Canvas1.Invalidate
+		  End If
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
 		Private Sub testSwap()
 		  Var pLogo As FolderItem=loadFromCore("logo")
 		  Var pTest As FolderItem=loadFromCore("Test")
@@ -486,6 +558,14 @@ End
 		    testSwap
 		  Case "Divide"
 		    testDivide
+		  Case "ExtractChannel"
+		    testExtractChannel
+		  Case "Flip"
+		    testFlip
+		  Case "Repeat"
+		    testRepeat
+		  Case "Rotate"
+		    testRotate
 		  End Select
 		End Sub
 	#tag EndEvent

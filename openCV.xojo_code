@@ -416,6 +416,12 @@ Protected Module openCV
 		Huber = 7
 	#tag EndEnum
 
+	#tag Enum, Name = flipTypes, Type = Integer, Flags = &h1
+		BothAxes=-1
+		  xAxis
+		yAxis
+	#tag EndEnum
+
 	#tag Enum, Name = FloodFillFlags, Type = Int16, Flags = &h1
 		FixedRange  = 65536
 		MaskOnly  = 131072
@@ -641,6 +647,12 @@ Protected Module openCV
 		  Ccomp = 2
 		  Tree = 3
 		Floodfill = 4
+	#tag EndEnum
+
+	#tag Enum, Name = RotateFlags, Type = Integer, Flags = &h1
+		Rotate90Clockwise
+		  Rotate180
+		Rotate90CounterClockwise
 	#tag EndEnum
 
 	#tag Enum, Name = ShapeMatchModes, Type = Int16, Flags = &h1
