@@ -282,3 +282,4 @@ Xojo-OpenCV-C is released under the Apache 2 license, the same as OpenCV itself.
 
 ### History
 * 2021 June: Initial release, with code from OpenCV Core, ImgProc, ImgCodec, Stitching, ObjDetect, and Photo modules. 
+* 2022 June: Made repository public
