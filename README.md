@@ -278,7 +278,6 @@ Xojo-OpenCV-C is released under the Apache 2 license, the same as OpenCV itself.
 
 ### Contributors:
 * [Antonio Rinaldi](https://github.com/Falcomedia)
-* [Roberto Calvi](https://github.com/robertocalvi)
 * [Perry Paolantonio](https://github.com/friolator)
 
 ### History
