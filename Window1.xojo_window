@@ -1,5 +1,5 @@
-#tag Window
-Begin Window Window1
+#tag DesktopWindow
+Begin DesktopWindow Window1
    Backdrop        =   0
    BackgroundColor =   &cFFFFFF00
    Composite       =   False
@@ -24,7 +24,7 @@ Begin Window Window1
    Type            =   0
    Visible         =   True
    Width           =   804
-   Begin PushButton bLoad
+   Begin DesktopButton bLoad
       AllowAutoDeactivate=   True
       Bold            =   False
       Cancel          =   False
@@ -56,11 +56,9 @@ Begin Window Window1
       Visible         =   True
       Width           =   108
    End
-   Begin Label Label1
+   Begin DesktopLabel Label1
       AllowAutoDeactivate=   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
       FontName        =   "System"
       FontSize        =   0.0
@@ -91,7 +89,7 @@ Begin Window Window1
       Visible         =   True
       Width           =   440
    End
-   Begin PushButton bShow
+   Begin DesktopButton bShow
       AllowAutoDeactivate=   True
       Bold            =   False
       Cancel          =   False
@@ -123,7 +121,7 @@ Begin Window Window1
       Visible         =   True
       Width           =   80
    End
-   Begin PushButton bResize
+   Begin DesktopButton bResize
       AllowAutoDeactivate=   True
       Bold            =   False
       Cancel          =   False
@@ -155,7 +153,7 @@ Begin Window Window1
       Visible         =   True
       Width           =   80
    End
-   Begin PushButton bBlur
+   Begin DesktopButton bBlur
       AllowAutoDeactivate=   True
       Bold            =   False
       Cancel          =   False
@@ -187,7 +185,7 @@ Begin Window Window1
       Visible         =   True
       Width           =   80
    End
-   Begin PushButton bShow1
+   Begin DesktopButton bShow1
       AllowAutoDeactivate=   True
       Bold            =   False
       Cancel          =   False
@@ -219,7 +217,7 @@ Begin Window Window1
       Visible         =   True
       Width           =   80
    End
-   Begin PushButton bCanny
+   Begin DesktopButton bCanny
       AllowAutoDeactivate=   True
       Bold            =   False
       Cancel          =   False
@@ -251,7 +249,7 @@ Begin Window Window1
       Visible         =   True
       Width           =   80
    End
-   Begin PushButton PushButton2
+   Begin DesktopButton PushButton2
       AllowAutoDeactivate=   True
       Bold            =   False
       Cancel          =   False
@@ -283,7 +281,7 @@ Begin Window Window1
       Visible         =   True
       Width           =   80
    End
-   Begin PushButton bVideoTest
+   Begin DesktopButton bVideoTest
       AllowAutoDeactivate=   True
       Bold            =   False
       Cancel          =   False
@@ -315,7 +313,7 @@ Begin Window Window1
       Visible         =   True
       Width           =   80
    End
-   Begin PushButton PushButton3
+   Begin DesktopButton PushButton3
       AllowAutoDeactivate=   True
       Bold            =   False
       Cancel          =   False
@@ -347,13 +345,12 @@ Begin Window Window1
       Visible         =   True
       Width           =   80
    End
-   Begin Canvas Canvas1
+   Begin DesktopCanvas Canvas1
       AllowAutoDeactivate=   True
       AllowFocus      =   False
       AllowFocusRing  =   True
       AllowTabs       =   False
       Backdrop        =   0
-      DoubleBuffer    =   False
       Enabled         =   True
       Height          =   344
       Index           =   -2147483648
@@ -374,7 +371,7 @@ Begin Window Window1
       Visible         =   True
       Width           =   465
    End
-   Begin PushButton bTest
+   Begin DesktopButton bTest
       AllowAutoDeactivate=   True
       Bold            =   False
       Cancel          =   False
@@ -406,7 +403,7 @@ Begin Window Window1
       Visible         =   True
       Width           =   80
    End
-   Begin PushButton bFaces
+   Begin DesktopButton bFaces
       AllowAutoDeactivate=   True
       Bold            =   False
       Cancel          =   False
@@ -438,11 +435,9 @@ Begin Window Window1
       Visible         =   True
       Width           =   80
    End
-   Begin PopupMenu sampleImage
+   Begin DesktopPopupMenu sampleImage
       AllowAutoDeactivate=   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
       FontName        =   "System"
       FontSize        =   0.0
@@ -470,11 +465,9 @@ Begin Window Window1
       Visible         =   True
       Width           =   172
    End
-   Begin Label lblFaces
+   Begin DesktopLabel lblFaces
       AllowAutoDeactivate=   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
       FontName        =   "System"
       FontSize        =   0.0
@@ -505,7 +498,7 @@ Begin Window Window1
       Visible         =   True
       Width           =   264
    End
-   Begin PushButton bSobel
+   Begin DesktopButton bSobel
       AllowAutoDeactivate=   True
       Bold            =   False
       Cancel          =   False
@@ -537,7 +530,7 @@ Begin Window Window1
       Visible         =   True
       Width           =   80
    End
-   Begin Slider sobelParam
+   Begin DesktopSlider sobelParam
       AllowAutoDeactivate=   True
       AllowLiveScrolling=   False
       Enabled         =   True
@@ -566,11 +559,9 @@ Begin Window Window1
       Visible         =   True
       Width           =   100
    End
-   Begin Label tSobleParam
+   Begin DesktopLabel tSobleParam
       AllowAutoDeactivate=   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
       FontName        =   "System"
       FontSize        =   0.0
@@ -601,7 +592,7 @@ Begin Window Window1
       Visible         =   True
       Width           =   74
    End
-   Begin Slider sobelParam
+   Begin DesktopSlider sobelParam
       AllowAutoDeactivate=   True
       AllowLiveScrolling=   False
       Enabled         =   True
@@ -630,11 +621,9 @@ Begin Window Window1
       Visible         =   True
       Width           =   100
    End
-   Begin Label tSobleParam
+   Begin DesktopLabel tSobleParam
       AllowAutoDeactivate=   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
       FontName        =   "System"
       FontSize        =   0.0
@@ -665,7 +654,7 @@ Begin Window Window1
       Visible         =   True
       Width           =   74
    End
-   Begin Slider sobelParam
+   Begin DesktopSlider sobelParam
       AllowAutoDeactivate=   True
       AllowLiveScrolling=   False
       Enabled         =   True
@@ -694,11 +683,9 @@ Begin Window Window1
       Visible         =   True
       Width           =   100
    End
-   Begin Label tSobleParam
+   Begin DesktopLabel tSobleParam
       AllowAutoDeactivate=   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
       FontName        =   "System"
       FontSize        =   0.0
@@ -729,7 +716,7 @@ Begin Window Window1
       Visible         =   True
       Width           =   74
    End
-   Begin PushButton PushButton1
+   Begin DesktopButton PushButton1
       AllowAutoDeactivate=   True
       Bold            =   False
       Cancel          =   False
@@ -762,11 +749,11 @@ Begin Window Window1
       Width           =   80
    End
 End
-#tag EndWindow
+#tag EndDesktopWindow
 
 #tag WindowCode
 	#tag Event
-		Sub Open()
+		Sub Opening()
 		  imageResources=New Dictionary
 		  Var fr As FolderItem=SpecialFolder.Resource("images")
 		  For Each ff As FolderItem In fr.Children
@@ -846,7 +833,7 @@ End
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Sub showTime(start as Double, lbl as Label)
+		Private Sub showTime(start as Double, lbl as DesktopLabel)
 		  Var t As Double=System.Microseconds-start
 		  t=t/1000
 		  lbl.Text="Elapsed: "+t.ToString("#,##0.000")+"ms"
@@ -864,7 +851,7 @@ End
 			Set
 			  rects.RemoveAll
 			  mcurrentImage = value
-			  Canvas1.Invalidate
+			  Canvas1.Refresh
 			End Set
 		#tag EndSetter
 		currentImage As Picture
@@ -895,15 +882,14 @@ End
 
 #tag Events bLoad
 	#tag Event
-		Sub Action()
+		Sub Pressed()
 		  LoadImage
-		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events bShow
 	#tag Event
-		Sub Action()
+		Sub Pressed()
 		  //HIGUI
 		  openCV.HighGui.imgShow("source", reference)
 		  openCV.HighGui.waitKey(0)
@@ -914,7 +900,7 @@ End
 #tag EndEvents
 #tag Events bResize
 	#tag Event
-		Sub Action()
+		Sub Pressed()
 		  If reference=Nil Then Return
 		  Var scale As Double=.5
 		  Var scaledSize As New openCV.CVCSize(reference.Width*scale, reference.Height*Scale)
@@ -925,7 +911,7 @@ End
 #tag EndEvents
 #tag Events bBlur
 	#tag Event
-		Sub Action()
+		Sub Pressed()
 		  If reference=Nil Then Return
 		  Var blurSize As New openCV.CVCSize(0, 0)
 		  //openCV.imgProc.CVCGaussianBlur(reference, reference, blurSize, 3.0, 3.0, openCV.BorderTypes.Default)
@@ -936,7 +922,7 @@ End
 #tag EndEvents
 #tag Events bShow1
 	#tag Event
-		Sub Action()
+		Sub Pressed()
 		  //HIGUI
 		  If reference2<>Nil Then
 		    openCV.HighGui.imgShow("source", reference2)
@@ -950,7 +936,7 @@ End
 #tag EndEvents
 #tag Events bCanny
 	#tag Event
-		Sub Action()
+		Sub Pressed()
 		  Var f As FolderItem=SpecialFolder.Resource("images").Child("starry_night.jpeg")
 		  Var image As openCV.CVCMat=openCV.Codecs.imread(f.NativePath, openCV.ImReadModes.Color)
 		  
@@ -975,7 +961,7 @@ End
 #tag EndEvents
 #tag Events PushButton2
 	#tag Event
-		Sub Action()
+		Sub Pressed()
 		  Var videoStream As openCV.CVCVideoCapture=openCV.CVCVideoCapture.Create
 		  If videoStream=Nil Then
 		    MessageBox "Cannot connect to video stream"
@@ -1092,7 +1078,7 @@ End
 #tag EndEvents
 #tag Events bVideoTest
 	#tag Event
-		Sub Action()
+		Sub Pressed()
 		  Var videoStream As openCV.CVCVideoCapture=openCV.CVCVideoCapture.Create
 		  If videoStream=Nil Then
 		    MessageBox "Cannot connect to video stream"
@@ -1113,7 +1099,7 @@ End
 #tag EndEvents
 #tag Events PushButton3
 	#tag Event
-		Sub Action()
+		Sub Pressed()
 		  If reference<>Nil Then
 		    '
 		    'Var f As FolderItem=SpecialFolder.Desktop.Child("prova.png")
@@ -1126,7 +1112,7 @@ End
 #tag EndEvents
 #tag Events Canvas1
 	#tag Event
-		Sub Paint(g As Graphics, areas() As REALbasic.Rect)
+		Sub Paint(g As Graphics, areas() As Rect)
 		  If currentImage=Nil Then Return
 		  
 		  Var s As Double=min(g.Width/currentImage.Width, g.Height/currentImage.Height)
@@ -1151,7 +1137,7 @@ End
 #tag EndEvents
 #tag Events bTest
 	#tag Event
-		Sub Action()
+		Sub Pressed()
 		  If False Then
 		    //Test int vector: is int32 vector
 		    Var v As New openCV.CVCIntVector
@@ -1282,7 +1268,7 @@ End
 #tag EndEvents
 #tag Events bFaces
 	#tag Event
-		Sub Action()
+		Sub Pressed()
 		  rects.RemoveAll
 		  If sampleImage.RowCount=0 Then Return
 		  Var f As FolderItem=loadFromResource(sampleImage.RowTagAt(sampleImage.SelectedRowIndex))
@@ -1367,7 +1353,7 @@ End
 #tag EndEvents
 #tag Events bSobel
 	#tag Event
-		Sub Action()
+		Sub Pressed()
 		  Var n As Integer=Runtime.ObjectCount
 		  Var mn As Integer=Runtime.MemoryUsed
 		  rects.RemoveAll
@@ -1424,7 +1410,7 @@ End
 #tag EndEvents
 #tag Events PushButton1
 	#tag Event
-		Sub Action()
+		Sub Pressed()
 		  wCore.show
 		End Sub
 	#tag EndEvent
@@ -1519,8 +1505,7 @@ End
 			"6 - Rounded Window"
 			"7 - Global Floating Window"
 			"8 - Sheet Window"
-			"9 - Metal Window"
-			"11 - Modeless Dialog"
+			"9 - Modeless Dialog"
 		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
@@ -1639,8 +1624,8 @@ End
 		Visible=true
 		Group="Background"
 		InitialValue="&hFFFFFF"
-		Type="Color"
-		EditorType="Color"
+		Type="ColorGroup"
+		EditorType="ColorGroup"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Backdrop"
@@ -1655,7 +1640,7 @@ End
 		Visible=true
 		Group="Menus"
 		InitialValue=""
-		Type="MenuBar"
+		Type="DesktopMenuBar"
 		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty

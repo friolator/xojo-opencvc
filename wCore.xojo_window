@@ -1,5 +1,5 @@
-#tag Window
-Begin Window wCore
+#tag DesktopWindow
+Begin DesktopWindow wCore
    Backdrop        =   0
    BackgroundColor =   &cFFFFFF00
    Composite       =   False
@@ -177,11 +177,11 @@ Begin Window wCore
       Width           =   256
    End
 End
-#tag EndWindow
+#tag EndDesktopWindow
 
 #tag WindowCode
 	#tag Event
-		Sub Open()
+		Sub Opening()
 		  coreResources=New Dictionary
 		  Var fr As FolderItem=SpecialFolder.Resource("coresample")
 		  For Each ff As FolderItem In fr.Children
