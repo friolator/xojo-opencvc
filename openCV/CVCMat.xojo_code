@@ -7,6 +7,18 @@ Protected Class CVCMat
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub Constructor(rows as integer, cols as integer, type as integer)
+		  mHandle = CVCMatCreate1(rows,cols,type)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub Constructor(rows as integer, cols as integer, type as integer, image as ptr)
+		  mHandle = CVCMatCreate2(rows,cols,type,image)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub Constructor(h as Ptr)
 		  mHandle=h
 		  
@@ -15,6 +27,14 @@ Protected Class CVCMat
 
 	#tag ExternalMethod, Flags = &h21
 		Private Declare Function CVCMatCreate Lib LibOpenCVC () As Ptr
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Private Soft Declare Function CVCMatCreate1 Lib LibOpenCVC (rows as integer, cols as integer, type as integer) As ptr
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Private Soft Declare Function CVCMatCreate2 Lib LibOpenCVC (rows as integer, cols as integer, type as integer, img as ptr) As ptr
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21

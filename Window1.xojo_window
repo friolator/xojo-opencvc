@@ -249,7 +249,7 @@ Begin DesktopWindow Window1
       Visible         =   True
       Width           =   80
    End
-   Begin DesktopButton PushButton2
+   Begin DesktopButton bVideoFunctionTest
       AllowAutoDeactivate=   True
       Bold            =   False
       Cancel          =   False
@@ -313,7 +313,7 @@ Begin DesktopWindow Window1
       Visible         =   True
       Width           =   80
    End
-   Begin DesktopButton PushButton3
+   Begin DesktopButton bPictureButton
       AllowAutoDeactivate=   True
       Bold            =   False
       Cancel          =   False
@@ -716,7 +716,7 @@ Begin DesktopWindow Window1
       Visible         =   True
       Width           =   74
    End
-   Begin DesktopButton PushButton1
+   Begin DesktopButton bCoreFunctionTests
       AllowAutoDeactivate=   True
       Bold            =   False
       Cancel          =   False
@@ -743,6 +743,37 @@ Begin DesktopWindow Window1
       TabStop         =   True
       Tooltip         =   ""
       Top             =   59
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   80
+   End
+   Begin DesktopButton bMerge
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Cancel          =   False
+      Caption         =   "Merge2"
+      Default         =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   20
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   20
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      MacButtonStyle  =   0
+      Scope           =   2
+      TabIndex        =   24
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Tooltip         =   ""
+      Top             =   106
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -959,7 +990,7 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events PushButton2
+#tag Events bVideoFunctionTest
 	#tag Event
 		Sub Pressed()
 		  Var videoStream As openCV.CVCVideoCapture=openCV.CVCVideoCapture.Create
@@ -1097,7 +1128,7 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events PushButton3
+#tag Events bPictureButton
 	#tag Event
 		Sub Pressed()
 		  If reference<>Nil Then
@@ -1408,10 +1439,76 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events PushButton1
+#tag Events bCoreFunctionTests
 	#tag Event
 		Sub Pressed()
 		  wCore.show
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events bMerge
+	#tag Event
+		Sub Pressed()
+		  //This is used to test the CVCmerge2 function, which combines multiple monochrome channels into one color channel
+		  
+		  Var f As FolderItem
+		  var filename as string
+		  var r as new openCV.CVCMat
+		  var g as new openCV.CVCMat
+		  var b as new openCV.CVCMat
+		  
+		  
+		  
+		  for i as integer = 1 to 3
+		    if i = 1 then 
+		      filename = "starry_night_R.jpeg"
+		    elseif i = 2 then
+		      filename = "starry_night_G.jpeg"
+		    elseif i = 3 then'
+		      filename = "starry_night_B.jpeg"
+		    end if
+		    
+		    Try
+		      f=SpecialFolder.Resource("images").Child(filename)
+		    Catch
+		      f=Nil
+		    End Try
+		    
+		    if f<>Nil Then
+		      reference=openCV.Codecs.imread(f.NativePath, openCV.ImReadModes.Unchanged)
+		    End If
+		    
+		    If reference=Nil Then
+		      Label1.Text="No image loaded!"
+		    Else
+		      if i = 1 then 
+		        r = reference
+		      elseif i = 2 then
+		        g = reference
+		      elseif i = 3 then'
+		        b = reference
+		      end if
+		      
+		    End If
+		  next
+		  
+		  // merge into a new color image
+		  var colorcomp as new openCV.CVCMat
+		  var channels as new openCV.CVCMatRefVector
+		  
+		  channels.Add(b)
+		  channels.Add(g)
+		  channels.Add(r)
+		  
+		  //create an InputArray to pass to merge2
+		  var channelsInputArray as new openCV.CVCInputArray(channels)
+		  
+		  openCV.Core.merge2(channelsInputArray, colorcomp)
+		  
+		  openCV.HighGui.imgShow("Merged Channels", colorcomp)
+		  openCV.HighGui.waitKey(0)
+		  openCV.HighGui.DestroyAllWindows
+		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents

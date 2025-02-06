@@ -265,6 +265,10 @@ Protected Module Core
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
+		Private Soft Declare Sub CVCmerge2 Lib LibOpenCVC (mv as Ptr, dst as ptr)
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h21
 		Private Declare Sub CVCmin Lib LibOpenCVC (src1 as Ptr, src2 as ptr, dst as ptr)
 	#tag EndExternalMethod
 
@@ -527,6 +531,20 @@ Protected Module Core
 	#tag Method, Flags = &h1
 		Protected Sub merge(mv as CVCMat, count as uinteger, dst as CVCMat)
 		  CVCmerge(mv.handle, count, dst.handle)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h1
+		Protected Sub merge2(mv as CVCInputArray, dst as CVCMat)
+		  
+		  try
+		    break
+		    CVCmerge2(mv.handle, dst.handle)
+		  Catch e As RunTimeException
+		    Raise e // Re-raise the exception for the framework
+		    MessageBox(e.Message)
+		  End Try
+		  
 		End Sub
 	#tag EndMethod
 
