@@ -538,7 +538,6 @@ Protected Module Core
 		Protected Sub merge2(mv as CVCInputArray, dst as CVCMat)
 		  
 		  try
-		    break
 		    CVCmerge2(mv.handle, dst.handle)
 		  Catch e As RunTimeException
 		    Raise e // Re-raise the exception for the framework
