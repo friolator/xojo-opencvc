@@ -29,22 +29,24 @@ OpenCV uses many overloaded C++ functions for convenience, something C does not 
 
 OpenCV-C and Xojo-OpenCV-C may not always be in sync. Most users should always use the libraries provided in this package, rather than compiling a new one from OpenCV-C. This will ensure that the Xojo code you're working with was tested and is known to work. 
 
+### How do I use OpenCV in my project?
+The basic idea with this Xojo project is to present the openCV functionality as a collection of classes and methods you can use in your project. All of the code lives inside an openCV module, which contains basic classes for creating and manipulating Mats, the basic building block for openCV. It's beyond the scope of this document to explain how to use OpenCV itself, all the docs are available on the openCV web site. You shoud check to see if the function you need from OpenCV is in OpenCV-C first. OpenCV-C mirrors the structure of OpenCV, so if you're looking for a Core function, you just need to look in the OpenCV-C Core.h or Core.cpp files to see if it's implemented If it's not commented out, then it's there.
+
+Xojo-OpenCVC is meant to provide examples of how to use the code. It assumes you have some familiarity with Xojo, and can navigate the IDE. Most code lives inside of buttons so you should open up a button to see how things are done. We will be adding inline documentation to the code over time, but it's a low priority. If you' want to help do that, let us know!
 
 ## Installation
 
 #### Mac
 1. Download Xojo-OpenCV-C
 2. Open the project in Xojo
-3. Open your project
-4. Copy/Paste the OpenCV module from Xojo-OpenCV-C to your project
-5. Add a Build Copy operation in Xojo to copy the external/libOpenCVC.dylib file to your project's Framework folder.
+3. Unzip external/libOpenCVC.zip
+4. Open the Xojo-OpenCVC project
 
 #### Windows
 1. Download Xojo-OpenCV-C
-3. Open the project in Xojo
-4. Open your project
-5. Copy/Paste the OpenCV module from Xojo-OpenCV-C to your project
-6. Add a Build Copy operation in Xojo to copy the OpenCVC.dll file to your project's App Parent folder. 
+2. Open the project in Xojo
+3. Unzip external/opencv_world452d.zip
+4. Open the Xojo-OpenCVC project
 
 #### Linux
 TO DO
@@ -55,220 +57,223 @@ TO DO
 TO DO
 ### OpenCV Functions Available
 * Xojo Classes/Structures for common OpenCV objects
+  * CVCFloatVector
+  * CVCInputArray 
+  * CVCIntVector
   * CVCMat
-  * CVCRect
   * CVCMatVector
+  * CVCMatRefVector
   * CVCPoint
   * CVCPoint2f
+  * CVCRect
+  * CVCRectVector
   * CVCScalar
   * CVCSize
-  * CVCRectVector
-  * CVCIntVector
-  * CVCFloatVector
   * CVCUCharVector
 * core
-  * CVCswap
-  * CVCborderInterpolate
+  * CVCabsdiff
   * CVCadd
-  * CVCsubtract
-  * CVCmultiply
-  * CVCdivide
-  * CVCscaleAdd
   * CVCaddWeighted
-  * CVCconvertScaleAbs
-  * CVCconvertFp16
-  * CVCLUT
-  * CVCcountNonZero
-  * CVCfindNonZero
-  * CVCmeanStdDev
-  * CVCnorm
-  * CVCPSNR
   * CVCbatchDistance
-  * CVCminMaxIdx
-  * CVCreduce
-  * CVCmerge
-  * CVCsplit
-  * CVCmixChannels
-  * CVCextractChannel
-  * CVCflip
-  * CVCrotate
-  * CVCrepeat
   * CVCbitwise_and
+  * CVCbitwise_not
   * CVCbitwise_or
   * CVCbitwise_xor
-  * CVCbitwise_not
-  * CVCabsdiff
-  * CVCcopyTo
-  * CVCinRange
-  * CVCcompare
-  * CVCmin
-  * CVCmax
-  * CVCsqrt
-  * CVCpow
-  * CVCexp
-  * CVClog
-  * CVCpolarToCart
+  * CVCborderInterpolate
+  * CVCcalcCovarMatrix
   * CVCcartToPolar
-  * CVCphase
-  * CVCmagnitude
-  * CVCgemm
-  * CVCmulTransposed
-  * CVCtranspose
-  * CVCtransform
-  * CVCperspectiveTransform
+  * CVCcompare
+  * CVCconvertScaleAbs
+  * CVCconvertFp16
+  * CVCcopyTo
+  * CVCcountNonZero
+  * CVCdct
   * CVCdeterminant
-  * CVCinvert
-  * CVCsolve
-  * CVCsort
-  * CVCsortIdx
-  * CVCsolveCubic
-  * CVCsolvePoly
+  * CVCdft
   * CVCeigen
   * CVCeigenNonSymmetric
-  * CVCcalcCovarMatrix
+  * CVCexp
+  * CVCextractChannel
+  * CVCdivide
+  * CVCfindNonZero
+  * CVCflip
+  * CVCgemm
+  * CVCgetOptimalDFTSize
+  * CVCidct
+  * CVCidft
+  * CVCinRange
+  * CVCinvert
+  * CVClog
+  * CVCLUT
+  * CVCmagnitude
+  * CVCMahalanobis
+  * CVCmax
+  * CVCmeanStdDev
+  * CVCmerge
+  * CVCmerge2
+  * CVCmin
+  * CVCminMaxIdx
+  * CVCmixChannels
+  * CVCmulSpectrums
+  * CVCmultiply
+  * CVCmulTransposed
+  * CVCnorm
   * CVCPCAProject
   * CVCPCABackProject
+  * CVCperspectiveTransform
+  * CVCphase
+  * CVCpow
+  * CVCpolarToCart
+  * CVCPSNR
+  * CVCreduce
+  * CVCrepeat
+  * CVCrotate
+  * CVCscaleAdd
+  * CVCsetRNGSeed
+  * CVCsolve
+  * CVCsolveCubic
+  * CVCsolvePoly
+  * CVCsort
+  * CVCsortIdx
+  * CVCsplit
+  * CVCsqrt
+  * CVCsubtract
   * CVCSVDecomp
   * CVCSVBackSubst
-  * CVCMahalanobis
-  * CVCdft
-  * CVCidft
-  * CVCdct
-  * CVCidct
-  * CVCmulSpectrums
-  * CVCgetOptimalDFTSize
-  * CVCsetRNGSeed
+  * CVCswap
+  * CVCtranspose
+  * CVCtransform
 * imgcodecs
-  * CVCimread
-  * CVCimwrite
-  * CVCimdecode
-  * CVCimencode
   * CVChaveImageReader
   * CVChaveImageWriter
+  * CVCimdecode
+  * CVCimencode
+  * CVCimread
+  * CVCimwrite
 * imgproc
-  * CVCgetGaussianKernel
-  * CVCgetDerivKernels
-  * CVCgetGaborKernel
-  * CVCmorphologyDefaultBorderValue
-  * CVCgetStructuringElement
-  * CVCmedianBlur
-  * CVCGaussianBlur
-  * CVCbilateralFilter
-  * CVCboxFilter
-  * CVCsqrBoxFilter
-  * CVCblur
-  * CVCfilter2D
-  * CVCsepFilter2D
-  * CVCSobel
-  * CVCspatialGradient
-  * CVCScharr
-  * CVCLaplacian
-  * CVCCanny
-  * CVCcornerMinEigenVal
-  * CVCcornerHarris
-  * CVCcornerEigenValsAndVecs
-  * CVCpreCornerDetect
-  * CVCcornerSubPix
-  * CVCgoodFeaturesToTrack
-  * CVCgoodFeaturesToTrackWithQuality
-  * CVCHoughLines
-  * CVCHoughLinesP
-  * CVCHoughLinesPointSet
-  * CVCHoughCircles
-  * CVCerode
-  * CVCdilate
-  * CVCmorphologyEx
-  * CVCresize
-  * CVCwarpAffine
-  * CVCwarpPerspective
-  * CVCremap
-  * CVCconvertMaps
-  * CVCgetRotationMatrix2D
-  * CVCinvertAffineTransform
-  * CVCgetPerspectiveTransform
-  * CVCgetAffineTransform
-  * CVCgetRectSubPix
-  * CVClogPolar
-  * CVClinearPolar
-  * CVCwarpPolar
-  * CVCintegral
-  * CVCintegral2
-  * CVCintegral3
   * CVCaccumulate
-  * CVCaccumulateSquare
   * CVCaccumulateProduct
+  * CVCaccumulateSquare
   * CVCaccumulateWeighted
-  * CVCcreateHanningWindow
-  * CVCthreshold
   * CVCadaptiveThreshold
-  * CVCpyrDown
-  * CVCpyrUp
-  * CVCcalcHist
-  * CVCcompareHist
-  * CVCequalizeHist
-  * CVCEMD
-  * CVCwatershed
-  * CVCdistanceTransformWithLabels
-  * CVCdistanceTransform
+  * CVCapplyColorMap
+  * CVCapproxPolyDP
+  * CVCarcLength
+  * CVCarrowedLine
+  * CVCbilateralFilter
   * CVCblendLinear
+  * CVCblur
+  * CVCboxFilter
+  * CVCcreateHanningWindow
+  * CVCcalcHist
+  * CVCCanny
+  * CVCcircle
+  * CVCclipLine
+  * CVCcompareHist
+  * CVCconnectedComponents
+  * CVCconnectedComponentsWithAlgorithm
+  * CVCconnectedComponentsWithStats
+  * CVCconnectedComponentsWithStatsWithAlgorithm
+  * CVCcontourArea
+  * CVCconvertMaps
+  * CVCcornerEigenValsAndVecs
+  * CVCcornerHarris
+  * CVCcornerMinEigenVal
+  * CVCcornerSubPix
+  * CVCconvexHull
+  * CVCconvexityDefects
   * CVCcvtColor
   * CVCcvtColorTwoPlane
   * CVCdemosaicing
+  * CVCdilate
+  * CVCdistanceTransform
+  * CVCdistanceTransformWithLabels
+  * CVCdrawMarker
+  * CVCellipse
+  * CVCEMD
+  * CVCequalizeHist
+  * CVCerode
+  * CVCfilter2D
+  * CVCfitLine
+  * CVCGaussianBlur
+  * CVCgetAffineTransform
+  * CVCgetDerivKernels
+  * CVCgetFontScaleFromHeight
+  * CVCgetRectSubPix
+  * CVCgetGaussianKernel
+  * CVCgetGaborKernel
+  * CVCgetPerspectiveTransform
+  * CVCgetRotationMatrix2D
+  * CVCgetStructuringElement
+  * CVCgetTextSize
+  * CVCgoodFeaturesToTrack
+  * CVCgoodFeaturesToTrackWithQuality
+  * CVCHoughCircles
+  * CVCHoughLines
+  * CVCHoughLinesP
+  * CVCHoughLinesPointSet
+  * CVCintegral
+  * CVCintegral2
+  * CVCintegral3
+  * CVCinvertAffineTransform
+  * CVCisContourConvex
+  * CVCintersectConvexConvex
+  * CVCLaplacian
+  * CVCline
+  * CVClinearPolar
+  * CVClogPolar
   * CVCmatchTemplate
-  * CVCconnectedComponentsWithAlgorithm
-  * CVCconnectedComponents
-  * CVCconnectedComponentsWithStatsWithAlgorithm
-  * CVCconnectedComponentsWithStats
-  * CVCapproxPolyDP
-  * CVCarcLength
-  * CVCcontourArea
   * CVCminEnclosingCircle
   * CVCminEnclosingTriangle
   * CVCmatchShapes
-  * CVCconvexHull
-  * CVCconvexityDefects
-  * CVCisContourConvex
-  * CVCintersectConvexConvex
-  * CVCfitLine
+  * CVCmorphologyDefaultBorderValue
+  * CVCmedianBlur
+  * CVCpreCornerDetect
+  * CVCmorphologyEx
   * CVCpointPolygonTest
-  * CVCapplyColorMap
-  * CVCline
-  * CVCarrowedLine
+  * CVCputText
+  * CVCpyrDown
+  * CVCpyrUp
   * CVCrectangle
   * CVCrectangle2
-  * CVCcircle
-  * CVCellipse
-  * CVCdrawMarker
-  * CVCclipLine
-  * CVCputText
-  * CVCgetTextSize
-  * CVCgetFontScaleFromHeight
+  * CVCremap
+  * CVCresize
+  * CVCsepFilter2D
+  * CVCScharr
+  * CVCSobel
+  * CVCspatialGradient
+  * CVCsqrBoxFilter
+  * CVCthreshold
+  * CVCwarpAffine
+  * CVCwarpPerspective
+  * CVCwarpPolar
+  * CVCwatershed
 * objdetect
+  * CVCCascadeClassifierDetectMultiScale
   * CVCCascadeClassifierFree
   * CVCCascadeClassifierLoad
-  * CVCCascadeClassifierDetectMultiScale
 * stitching
   * CVCStitcherCreate
   * CVCStitcherFree
   * CVCStitcherStitch
 * photo
-  * CVCinpaint
+  * CVCcolorChange
+  * CVCdecolor
+  * CVCdenoise_TVL1
+  * CVCdetailEnhance
+  * CVCedgePreservingFilter
   * CVCfastNlMeansDenoising
   * CVCfastNlMeansDenoising2
   * CVCfastNlMeansDenoisingColored
+  * CVCfastNlMeansDenoisingColoredMulti
   * CVCfastNlMeansDenoisingMulti
   * CVCfastNlMeansDenoisingMulti2
-  * CVCfastNlMeansDenoisingColoredMulti
-  * CVCdenoise_TVL1
-  * CVCdecolor
-  * CVCseamlessClone
-  * CVCcolorChange
   * CVCilluminationChange
-  * CVCtextureFlattening
-  * CVCedgePreservingFilter
-  * CVCdetailEnhance
+  * CVCinpaint
   * CVCpencilSketch
+  * CVCseamlessClone
   * CVCstylization
+  * CVCtextureFlattening
 
 
 
