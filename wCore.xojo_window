@@ -24,13 +24,12 @@ Begin DesktopWindow wCore
    Type            =   0
    Visible         =   True
    Width           =   600
-   Begin Canvas Canvas1
+   Begin DesktopCanvas Canvas1
       AllowAutoDeactivate=   True
       AllowFocus      =   False
       AllowFocusRing  =   True
       AllowTabs       =   False
       Backdrop        =   0
-      DoubleBuffer    =   False
       Enabled         =   True
       Height          =   328
       Index           =   -2147483648
@@ -51,7 +50,7 @@ Begin DesktopWindow wCore
       Visible         =   True
       Width           =   560
    End
-   Begin Slider Slider1
+   Begin DesktopSlider Slider1
       AllowAutoDeactivate=   True
       AllowLiveScrolling=   False
       Enabled         =   True
@@ -80,7 +79,7 @@ Begin DesktopWindow wCore
       Visible         =   True
       Width           =   100
    End
-   Begin PushButton bSplit
+   Begin DesktopButton bSplit
       AllowAutoDeactivate=   True
       Bold            =   False
       Cancel          =   False
@@ -112,7 +111,7 @@ Begin DesktopWindow wCore
       Visible         =   True
       Width           =   80
    End
-   Begin PushButton bCallAction
+   Begin DesktopButton bCallAction
       AllowAutoDeactivate=   True
       Bold            =   False
       Cancel          =   False
@@ -144,11 +143,9 @@ Begin DesktopWindow wCore
       Visible         =   True
       Width           =   80
    End
-   Begin PopupMenu FunctionToCall
+   Begin DesktopPopupMenu FunctionToCall
       AllowAutoDeactivate=   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
       FontName        =   "System"
       FontSize        =   0.0
@@ -256,7 +253,7 @@ End
 		    images.add New openCV.CVCMat
 		    
 		    openCV.Core.AbsDiff(images(0), images(1), images(2))
-		    Canvas1.Invalidate
+		    Canvas1.Refresh
 		  End If
 		End Sub
 	#tag EndMethod
@@ -272,7 +269,7 @@ End
 		    images.add New openCV.CVCMat
 		    
 		    openCV.Core.Add(images(0), images(1), images(2))
-		    Canvas1.Invalidate
+		    Canvas1.Refresh
 		  End If
 		End Sub
 	#tag EndMethod
@@ -289,7 +286,7 @@ End
 		    Var alpha As Double=Slider1.Value/Slider1.MaximumValue
 		    Var beta As Double=1-alpha
 		    openCV.Core.AddWeighted(images(0), alpha, images(1), beta, 0.0, images(2))
-		    Canvas1.Invalidate
+		    Canvas1.Refresh
 		  End If
 		End Sub
 	#tag EndMethod
@@ -305,7 +302,7 @@ End
 		    images.add New openCV.CVCMat
 		    
 		    openCV.Core.BitwiseAnd(images(0), images(1), images(2))
-		    Canvas1.Invalidate
+		    Canvas1.Refresh
 		  End If
 		End Sub
 	#tag EndMethod
@@ -320,7 +317,7 @@ End
 		    images.add New openCV.CVCMat
 		    
 		    openCV.Core.BitwiseNot(images(0), images(1))
-		    Canvas1.Invalidate
+		    Canvas1.Refresh
 		  End If
 		End Sub
 	#tag EndMethod
@@ -336,7 +333,7 @@ End
 		    images.add New openCV.CVCMat
 		    
 		    openCV.Core.BitwiseOr(images(0), images(1), images(2))
-		    Canvas1.Invalidate
+		    Canvas1.Refresh
 		  End If
 		End Sub
 	#tag EndMethod
@@ -352,7 +349,7 @@ End
 		    images.add New openCV.CVCMat
 		    
 		    openCV.Core.BitwiseXor(images(0), images(1), images(2))
-		    Canvas1.Invalidate
+		    Canvas1.Refresh
 		  End If
 		End Sub
 	#tag EndMethod
@@ -368,7 +365,7 @@ End
 		    images.add New openCV.CVCMat
 		    openCV.Core.Divide(images(0), images(1), images(2))
 		    
-		    Canvas1.Invalidate
+		    Canvas1.Refresh
 		  End If
 		End Sub
 	#tag EndMethod
@@ -387,7 +384,7 @@ End
 		    openCV.Core.ExtractChannel(images(0), images(1), 0)
 		    openCV.Core.ExtractChannel(images(0), images(2), 1)
 		    openCV.Core.ExtractChannel(images(0), images(3), 2)
-		    Canvas1.Invalidate
+		    Canvas1.Refresh
 		  End If
 		End Sub
 	#tag EndMethod
@@ -406,7 +403,7 @@ End
 		    openCV.Core.Flip(images(0), images(1), openCV.flipTypes.BothAxes)
 		    openCV.Core.Flip(images(0), images(2), openCV.flipTypes.xAxis)
 		    openCV.Core.Flip(images(0), images(3), openCV.flipTypes.yAxis)
-		    Canvas1.Invalidate
+		    Canvas1.Refresh
 		  End If
 		End Sub
 	#tag EndMethod
@@ -421,7 +418,7 @@ End
 		    images.add New openCV.CVCMat
 		    
 		    openCV.Core.Repeat(images(0), 3, 1, images(1))
-		    Canvas1.Invalidate
+		    Canvas1.Refresh
 		  End If
 		End Sub
 	#tag EndMethod
@@ -440,7 +437,7 @@ End
 		    openCV.Core.Rotate(images(0), images(1), openCV.RotateFlags.Rotate90Clockwise)
 		    openCV.Core.Rotate(images(0), images(2), openCV.RotateFlags.Rotate180)
 		    openCV.Core.Rotate(images(0), images(3), openCV.RotateFlags.Rotate90CounterClockwise)
-		    Canvas1.Invalidate
+		    Canvas1.Refresh
 		  End If
 		End Sub
 	#tag EndMethod
@@ -455,7 +452,7 @@ End
 		    images.Add openCV.Codecs.imRead(pTest.NativePath, openCV.ImReadModes.Unchanged)
 		    
 		    openCV.Core.Swap(images(0), images(1))
-		    Canvas1.Invalidate
+		    Canvas1.Refresh
 		  End If
 		End Sub
 	#tag EndMethod
@@ -478,7 +475,7 @@ End
 
 #tag Events Canvas1
 	#tag Event
-		Sub Paint(g As Graphics, areas() As REALbasic.Rect)
+		Sub Paint(g As Graphics, areas() As Rect)
 		  If images.Count=0 Then Return
 		  Var ht, wt As Double
 		  Var p() As Picture
@@ -503,7 +500,7 @@ End
 #tag EndEvents
 #tag Events bSplit
 	#tag Event
-		Sub Action()
+		Sub Pressed()
 		  Var pLogo As FolderItem=loadFromCore("logo")
 		  Var pTest As FolderItem=loadFromCore("Test")
 		  If pLogo<>Nil And pTest<>Nil Then
@@ -531,15 +528,15 @@ End
 		      p.Add m.image1
 		      //images.add matv.RowAt(i)
 		    Next
-		    Canvas1.Invalidate
+		    Canvas1.Refresh
 		  End If
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events bCallAction
 	#tag Event
-		Sub Action()
-		  Select Case functionToCall.SelectedRow
+		Sub Pressed()
+		  Select Case functionToCall.SelectedRowText
 		  Case "AbsDiff"
 		    testAbsDiff
 		  Case "Add"
@@ -660,8 +657,7 @@ End
 			"6 - Rounded Window"
 			"7 - Global Floating Window"
 			"8 - Sheet Window"
-			"9 - Metal Window"
-			"11 - Modeless Dialog"
+			"9 - Modeless Dialog"
 		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
@@ -780,8 +776,8 @@ End
 		Visible=true
 		Group="Background"
 		InitialValue="&hFFFFFF"
-		Type="Color"
-		EditorType="Color"
+		Type="ColorGroup"
+		EditorType="ColorGroup"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Backdrop"
@@ -796,7 +792,7 @@ End
 		Visible=true
 		Group="Menus"
 		InitialValue=""
-		Type="MenuBar"
+		Type="DesktopMenuBar"
 		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty

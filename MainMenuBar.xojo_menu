@@ -7,7 +7,7 @@ Begin Menu MainMenuBar
       AutoEnabled = True
       AutoEnable = True
       Visible = True
-      Begin QuitMenuItem FileQuit
+      Begin DesktopQuitMenuItem FileQuit
          SpecialMenu = 0
          Index = -2147483648
          Text = "#App.kFileQuit"
@@ -18,7 +18,7 @@ Begin Menu MainMenuBar
          Visible = True
       End
    End
-   Begin DesktopMenuItem EditMenu
+   Begin DesktopQuitMenuItem EditMenu
       SpecialMenu = 0
       Index = -2147483648
       Text = "&Edit"
