@@ -29,10 +29,6 @@ OpenCV uses many overloaded C++ functions for convenience, something C does not 
 
 OpenCV-C and Xojo-OpenCV-C may not always be in sync. Most users should always use the libraries provided in this package, rather than compiling a new one from OpenCV-C. This will ensure that the Xojo code you're working with was tested and is known to work. 
 
-### How do I use OpenCV in my project?
-The basic idea with this Xojo project is to present the openCV functionality as a collection of classes and methods you can use in your project. All of the code lives inside an openCV module that you can drag into your own project. But we do recommend playing with the supplied application to get a sense of how it works, first. The OpenCV module contains basic classes for creating and manipulating Mats, the basic building block for openCV. It's beyond the scope of this document to explain how to use OpenCV itself, all the docs are available on the openCV web site. You shoud check to see if the function you need from OpenCV is in OpenCV-C first. OpenCV-C mirrors the structure of OpenCV, so if you're looking for a Core function, you just need to look in the OpenCV-C Core.h or Core.cpp files to see if it's implemented If it's not commented out, then it's there.
-
-Xojo-OpenCVC is meant to provide examples of how to use the code. It assumes you have some familiarity with Xojo, and can navigate the IDE. Most code lives inside of buttons so you should open up a button to see how things are done. We will be adding inline documentation to the code over time, but it's a low priority. If you' want to help do that, let us know!
 
 ## Installation
 
@@ -52,7 +48,11 @@ TO DO
 
 
 ## Usage
-TO DO
+The basic idea with this Xojo project is to present the openCV functionality as a collection of classes and methods you can use in your project. All of the code lives inside an openCV module that you can drag into your own project. But we do recommend playing with the supplied application to get a sense of how it works, first. The OpenCV module contains basic classes for creating and manipulating Mats, the basic building block for openCV. It's beyond the scope of this document to explain how to use OpenCV itself, all the docs are available on the openCV web site. You shoud check to see if the function you need from OpenCV is in OpenCV-C first. OpenCV-C mirrors the structure of OpenCV, so if you're looking for a Core function, you just need to look in the OpenCV-C Core.h or Core.cpp files to see if it's implemented If it's not commented out, then it's there.
+
+Xojo-OpenCVC is meant to provide examples of how to use the code. It assumes you have some familiarity with Xojo, and can navigate the IDE. Most code lives inside of buttons so you should open up a button to see how things are done. We will be adding inline documentation to the code over time, but it's a low priority. If you' want to help do that, let us know!
+
+
 ### OpenCV Functions Available
 * Xojo Classes/Structures for common OpenCV objects
   * CVCFloatVector
