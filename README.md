@@ -38,14 +38,12 @@ Xojo-OpenCVC is meant to provide examples of how to use the code. It assumes you
 
 #### Mac
 1. Download Xojo-OpenCV-C
-2. Open the project in Xojo
-3. Unzip external/libOpenCVC.zip
+2. Unzip external/libOpenCVC.zip
 4. Open the Xojo-OpenCVC project
 
 #### Windows
 1. Download Xojo-OpenCV-C
-2. Open the project in Xojo
-3. Unzip external/opencv_world452d.zip
+2. Unzip external/opencv_world452d.zip
 4. Open the Xojo-OpenCVC project
 
 #### Linux
