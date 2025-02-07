@@ -787,6 +787,7 @@ End
 		Sub Opening()
 		  imageResources=New Dictionary
 		  Var fr As FolderItem=SpecialFolder.Resource("images")
+		  break
 		  For Each ff As FolderItem In fr.Children
 		    Var ffile() As String=ff.Name.Split(".")
 		    If ffile.Count>1 Then ffile.RemoveAt(ffile.LastIndex)

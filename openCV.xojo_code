@@ -43,6 +43,7 @@ Protected Module openCV
 
 	#tag Constant, Name = LibOpenCVC, Type = String, Dynamic = False, Default = \"openCv", Scope = Private
 		#Tag Instance, Platform = Mac OS, Language = Default, Definition  = \"@executable_path/../Frameworks/libOpenCVC.dylib"
+		#Tag Instance, Platform = Windows, Language = Default, Definition  = \"OpenCVC.dll"
 	#tag EndConstant
 
 
