@@ -46,8 +46,8 @@
 					Target = 0
 					Destination = 0
 					Subdirectory = 
-					FolderItem = Li4vZXh0ZXJuYWwvb3BlbmN2X3dvcmxkNDUyZC5kbGw=
 					FolderItem = Li4vZXh0ZXJuYWwvT3BlbkNWQy5kbGw=
+					FolderItem = Li4vZXh0ZXJuYWwvb3BlbmN2X3dvcmxkNDUyLmRsbA==
 				End
 				Begin CopyFilesBuildStep copyData1
 					AppliesTo = 0
