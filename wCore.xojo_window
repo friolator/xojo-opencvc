@@ -180,7 +180,7 @@ End
 	#tag Event
 		Sub Opening()
 		  coreResources=New Dictionary
-		  Var fr As FolderItem=SpecialFolder.Resource("coresample")
+		  Var fr As FolderItem=ResourcesFolder("coresample")
 		  For Each ff As FolderItem In fr.Children
 		    Var ffile() As String=ff.Name.Split(".")
 		    If ffile.Count>1 Then ffile.RemoveAt(ffile.LastIndex)
@@ -188,7 +188,7 @@ End
 		  Next
 		  
 		  imageResources=New Dictionary
-		  fr=SpecialFolder.Resource("images")
+		  fr=ResourcesFolder("images")
 		  For Each ff As FolderItem In fr.Children
 		    Var ffile() As String=ff.Name.Split(".")
 		    If ffile.Count>1 Then ffile.RemoveAt(ffile.LastIndex)

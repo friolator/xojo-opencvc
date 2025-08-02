@@ -786,7 +786,7 @@ End
 	#tag Event
 		Sub Opening()
 		  imageResources=New Dictionary
-		  Var fr As FolderItem=SpecialFolder.Resource("images")
+		  Var fr As FolderItem=ResourcesFolder("images")
 		  For Each ff As FolderItem In fr.Children
 		    Var ffile() As String=ff.Name.Split(".")
 		    If ffile.Count>1 Then ffile.RemoveAt(ffile.LastIndex)
@@ -829,7 +829,7 @@ End
 		  If ff=Nil Then
 		    Try
 		      //some special image
-		      f=SpecialFolder.Resource("images").Child("starry_night.jpeg")
+		      f=ResourcesFolder("images").Child("starry_night.jpeg")
 		    Catch
 		      f=Nil
 		    End Try
@@ -968,7 +968,7 @@ End
 #tag Events bCanny
 	#tag Event
 		Sub Pressed()
-		  Var f As FolderItem=SpecialFolder.Resource("images").Child("starry_night.jpeg")
+		  Var f As FolderItem=ResourcesFolder("images").Child("starry_night.jpeg")
 		  Var image As openCV.CVCMat=openCV.Codecs.imread(f.NativePath, openCV.ImReadModes.Color)
 		  
 		  // resize the image
@@ -993,7 +993,7 @@ End
 #tag Events bVideoFunctionTest
 	#tag Event
 		Sub Pressed()
-		  Var videoStream As openCV.CVCVideoCapture=openCV.CVCVideoCapture.Create
+		  Var videoStream As openCV.CVCVideoCapture=openCV.CVCVideoCapture.Create(0)
 		  If videoStream=Nil Then
 		    MessageBox "Cannot connect to video stream"
 		    Return
@@ -1008,7 +1008,7 @@ End
 		  
 		  Var faceCascade As New openCV.CVCCascadeClassifier
 		  Var eyeCascade As New openCV.CVCCascadeClassifier
-		  Var fdata As FolderItem=SpecialFolder.Resource("data")
+		  Var fdata As FolderItem=ResourcesFolder("data")
 		  If fdata<>Nil And fdata.Exists And fdata.IsFolder Then
 		    fdata=fdata.Child("haarcascades")
 		  Else
@@ -1110,7 +1110,7 @@ End
 #tag Events bVideoTest
 	#tag Event
 		Sub Pressed()
-		  Var videoStream As openCV.CVCVideoCapture=openCV.CVCVideoCapture.Create
+		  Var videoStream As openCV.CVCVideoCapture = openCV.CVCVideoCapture.Create(0)
 		  If videoStream=Nil Then
 		    MessageBox "Cannot connect to video stream"
 		    Return
@@ -1312,7 +1312,7 @@ End
 		  
 		  Var faceCascade As New openCV.CVCCascadeClassifier
 		  Var eyeCascade As New openCV.CVCCascadeClassifier
-		  Var fdata As FolderItem=SpecialFolder.Resource("data")
+		  Var fdata As FolderItem=ResourcesFolder("data")
 		  If fdata<>Nil And fdata.Exists And fdata.IsFolder Then
 		    fdata=fdata.Child("haarcascades")
 		  Else
@@ -1469,7 +1469,7 @@ End
 		    end if
 		    
 		    Try
-		      f=SpecialFolder.Resource("images").Child(filename)
+		      f=ResourcesFolder("images").Child(filename)
 		    Catch
 		      f=Nil
 		    End Try
