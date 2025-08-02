@@ -7,8 +7,15 @@ Protected Class CVCVideoCapture
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Shared Function Create() As CVCVideoCapture
-		  Var h As Ptr=CVCVideoCaptureCreate
+		Shared Function Create(index as Integer = 0) As CVCVideoCapture
+		  #if true
+		    // use this if you have not re-compiled the openCVC lib with the new function, yet:
+		    if index <> 0 then break
+		    Var h As Ptr = CVCVideoCaptureCreate()
+		  #else
+		    // Uses the new function added 03Aug2025:
+		    Var h As Ptr = CVCVideoCaptureCreateWithIndex(index)
+		  #endif
 		  If h<>Nil Then
 		    Return New CVCVideoCapture(h)
 		  End If
@@ -17,6 +24,10 @@ Protected Class CVCVideoCapture
 
 	#tag ExternalMethod, Flags = &h21
 		Private Declare Function CVCVideoCaptureCreate Lib LibOpenCVC () As Ptr
+	#tag EndExternalMethod
+
+	#tag ExternalMethod, Flags = &h21
+		Private Declare Function CVCVideoCaptureCreateWithIndex Lib LibOpenCVC (index as Integer = 0) As Ptr
 	#tag EndExternalMethod
 
 	#tag ExternalMethod, Flags = &h21
